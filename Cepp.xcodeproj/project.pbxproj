@@ -14,6 +14,11 @@
 		03B3C5561A1673E5001006B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5551A1673E5001006B6 /* Images.xcassets */; };
 		03B3C5591A1673E5001006B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5571A1673E5001006B6 /* LaunchScreen.xib */; };
 		03B3C5651A1673E5001006B6 /* CeppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5641A1673E5001006B6 /* CeppTests.swift */; };
+		03B3C56F1A16861A001006B6 /* CPPSearchCepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C56E1A16861A001006B6 /* CPPSearchCepViewController.swift */; };
+		03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5711A16A3A0001006B6 /* CPPCepAPIManager.swift */; };
+		03B3C5761A16A673001006B6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5751A16A673001006B6 /* Podfile */; };
+		03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5791A16B1A7001006B6 /* CPPAddress.swift */; };
+		481BED1F6C87802C6F95A030 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F651B421768CEC843A10C468 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,14 @@
 		03B3C55E1A1673E5001006B6 /* CeppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CeppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B3C5631A1673E5001006B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B3C5641A1673E5001006B6 /* CeppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeppTests.swift; sourceTree = "<group>"; };
+		03B3C56E1A16861A001006B6 /* CPPSearchCepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPSearchCepViewController.swift; path = Controller/CPPSearchCepViewController.swift; sourceTree = "<group>"; };
+		03B3C5711A16A3A0001006B6 /* CPPCepAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPCepAPIManager.swift; path = Model/CPPCepAPIManager.swift; sourceTree = "<group>"; };
+		03B3C5751A16A673001006B6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		03B3C5771A16A71C001006B6 /* CPPObjCBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPPObjCBridging.h; sourceTree = "<group>"; };
+		03B3C5791A16B1A7001006B6 /* CPPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPAddress.swift; path = Model/CPPAddress.swift; sourceTree = "<group>"; };
+		148B8C53EB8E3DAC56259E0E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		75B4889AEA40EE815F261B53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F651B421768CEC843A10C468 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481BED1F6C87802C6F95A030 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +78,8 @@
 				03B3C5491A1673E4001006B6 /* Cepp */,
 				03B3C5611A1673E5001006B6 /* CeppTests */,
 				03B3C5481A1673E4001006B6 /* Products */,
+				A01FBA1BA044B556C160E51F /* Pods */,
+				A10B4F2660311E8F59B7085E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +95,8 @@
 		03B3C5491A1673E4001006B6 /* Cepp */ = {
 			isa = PBXGroup;
 			children = (
+				03B3C5731A16A3A5001006B6 /* Model */,
+				03B3C5701A168620001006B6 /* Controller */,
 				03B3C54C1A1673E4001006B6 /* AppDelegate.swift */,
 				03B3C54E1A1673E4001006B6 /* MasterViewController.swift */,
 				03B3C5501A1673E5001006B6 /* DetailViewController.swift */,
@@ -93,7 +111,9 @@
 		03B3C54A1A1673E4001006B6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03B3C5751A16A673001006B6 /* Podfile */,
 				03B3C54B1A1673E4001006B6 /* Info.plist */,
+				03B3C5771A16A71C001006B6 /* CPPObjCBridging.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -115,6 +135,56 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		03B3C5701A168620001006B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C56E1A16861A001006B6 /* CPPSearchCepViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		03B3C5731A16A3A5001006B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C5741A16A3AB001006B6 /* Manager */,
+				03B3C57B1A16B1AF001006B6 /* DTO */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		03B3C5741A16A3AB001006B6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C5711A16A3A0001006B6 /* CPPCepAPIManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		03B3C57B1A16B1AF001006B6 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C5791A16B1A7001006B6 /* CPPAddress.swift */,
+			);
+			name = DTO;
+			sourceTree = "<group>";
+		};
+		A01FBA1BA044B556C160E51F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75B4889AEA40EE815F261B53 /* Pods.debug.xcconfig */,
+				148B8C53EB8E3DAC56259E0E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A10B4F2660311E8F59B7085E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F651B421768CEC843A10C468 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03B3C5681A1673E5001006B6 /* Build configuration list for PBXNativeTarget "Cepp" */;
 			buildPhases = (
+				95F43A748F84B75F6F2ED133 /* Check Pods Manifest.lock */,
 				03B3C5431A1673E4001006B6 /* Sources */,
 				03B3C5441A1673E4001006B6 /* Frameworks */,
 				03B3C5451A1673E4001006B6 /* Resources */,
+				7796839E8FDB8FB711CBFBE8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,6 +231,7 @@
 		03B3C53F1A1673E4001006B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CPP;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Filipe Alvarenga";
 				TargetAttributes = {
@@ -197,6 +270,7 @@
 			files = (
 				03B3C5541A1673E5001006B6 /* Main.storyboard in Resources */,
 				03B3C5591A1673E5001006B6 /* LaunchScreen.xib in Resources */,
+				03B3C5761A16A673001006B6 /* Podfile in Resources */,
 				03B3C5561A1673E5001006B6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +284,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7796839E8FDB8FB711CBFBE8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95F43A748F84B75F6F2ED133 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03B3C5431A1673E4001006B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -217,7 +324,10 @@
 			files = (
 				03B3C5511A1673E5001006B6 /* DetailViewController.swift in Sources */,
 				03B3C54F1A1673E4001006B6 /* MasterViewController.swift in Sources */,
+				03B3C56F1A16861A001006B6 /* CPPSearchCepViewController.swift in Sources */,
 				03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */,
+				03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */,
+				03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,21 +448,25 @@
 		};
 		03B3C5691A1673E5001006B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75B4889AEA40EE815F261B53 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cepp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Cepp/CPPObjCBridging.h;
 			};
 			name = Debug;
 		};
 		03B3C56A1A1673E5001006B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 148B8C53EB8E3DAC56259E0E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cepp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Cepp/CPPObjCBridging.h;
 			};
 			name = Release;
 		};
@@ -409,6 +523,7 @@
 				03B3C56A1A1673E5001006B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03B3C56B1A1673E5001006B6 /* Build configuration list for PBXNativeTarget "CeppTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +532,7 @@
 				03B3C56D1A1673E5001006B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
