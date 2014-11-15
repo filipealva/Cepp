@@ -18,6 +18,7 @@
 		03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5711A16A3A0001006B6 /* CPPCepAPIManager.swift */; };
 		03B3C5761A16A673001006B6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5751A16A673001006B6 /* Podfile */; };
 		03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5791A16B1A7001006B6 /* CPPAddress.swift */; };
+		03B3C57E1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */; };
 		481BED1F6C87802C6F95A030 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F651B421768CEC843A10C468 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		03B3C5751A16A673001006B6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		03B3C5771A16A71C001006B6 /* CPPObjCBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPPObjCBridging.h; sourceTree = "<group>"; };
 		03B3C5791A16B1A7001006B6 /* CPPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPAddress.swift; path = Model/CPPAddress.swift; sourceTree = "<group>"; };
+		03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPCepDetailsTableViewController.swift; path = Controller/CPPCepDetailsTableViewController.swift; sourceTree = "<group>"; };
 		148B8C53EB8E3DAC56259E0E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		75B4889AEA40EE815F261B53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F651B421768CEC843A10C468 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				03B3C56E1A16861A001006B6 /* CPPSearchCepViewController.swift */,
+				03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				03B3C56F1A16861A001006B6 /* CPPSearchCepViewController.swift in Sources */,
 				03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */,
 				03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */,
+				03B3C57E1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift in Sources */,
 				03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

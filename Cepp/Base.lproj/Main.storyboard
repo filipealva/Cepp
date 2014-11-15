@@ -147,9 +147,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="W9K-5b-3Hc" kind="show" id="jjF-S7-rZ7"/>
+                                            <action selector="searchButtonWasTouched:" destination="cjG-GB-y54" eventType="touchUpInside" id="eIJ-7e-68c"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-Sn-fCs">
+                                        <rect key="frame" x="180" y="30" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -174,8 +177,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Buscar" id="3qc-9c-ZS6"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="aPQ-Sn-fCs" id="9ez-AQ-l8R"/>
+                        <outlet property="cep" destination="CJY-Kw-6T7" id="Way-S7-yiz"/>
                         <outlet property="keyboardConstraint" destination="kQ1-Oj-LL9" id="E8Q-NJ-oQB"/>
+                        <outlet property="searchButton" destination="8hO-d9-bxs" id="2bK-zF-92h"/>
                         <outlet property="searchCepContainerView" destination="3pK-5W-reI" id="ppm-P5-yNG"/>
+                        <segue destination="W9K-5b-3Hc" kind="show" identifier="showCepDetails" id="rYo-Gp-YCe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHP-1l-0s8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,7 +192,7 @@
         <!--Detalhes-->
         <scene sceneID="NL6-fE-5Ya">
             <objects>
-                <tableViewController title="Detalhes" id="W9K-5b-3Hc" sceneMemberID="viewController">
+                <tableViewController title="Detalhes" id="W9K-5b-3Hc" customClass="CPPCepDetailsTableViewController" customModule="Cepp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="UXm-n0-121">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
