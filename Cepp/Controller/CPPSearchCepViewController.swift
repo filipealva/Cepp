@@ -20,16 +20,8 @@ class CPPSearchCepViewController: UIViewController {
     private var address: CPPAddress!
     var centerSearchViewConstraint: NSLayoutConstraint!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        var cep: String! = "94045060"
-        
-        NSLog("%@", CPPCepAPIManager().baseURL)
-        
-//        self.getAddressInfo()
-//        CPPCepAPIManager().getAddressWithCep(cep)
         
         self.centerSearchViewConstraint = NSLayoutConstraint(item: self.searchCepContainerView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
         
@@ -57,10 +49,12 @@ class CPPSearchCepViewController: UIViewController {
                 }
             }) { (error) -> Void in
                 NSLog("%@", error.description)
+                self.stopLoading()
             }
         } else {
             var emptyAlert = UIAlertView(title: "Oops!", message: "Digite o CEP antes de buscar :)", delegate: nil, cancelButtonTitle: "Entendi")
             emptyAlert.show()
+            self.stopLoading()
         }
     }
     
