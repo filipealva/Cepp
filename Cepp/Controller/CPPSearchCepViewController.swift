@@ -23,6 +23,7 @@ class CPPSearchCepViewController: UIViewController {
         
         NSLog("%@", CPPCepAPIManager().baseURL)
         
+        self.getAddressInfo()
 //        CPPCepAPIManager().getAddressWithCep(cep)
         
         self.centerSearchViewConstraint = NSLayoutConstraint(item: self.searchCepContainerView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
@@ -40,10 +41,15 @@ class CPPSearchCepViewController: UIViewController {
     // MARK : - Actions
     
     func getAddressInfo() {
-//        var cep: String! = "94045060"
-//        if let var address? = CPPCepAPIManager(cep, address) {
-//            
-//        }
+        var cep: String! = "94045020"
+        CPPCepAPIManager().getAddressWithCep(cep, success: { (responseObject) -> Void in
+            if let JSONAdress = responseObject as? Dictionary<String, String> {
+                NSLog("Funcionou: %@", JSONAdress)
+                var address = CPPAddress(dictionary: JSONAdress)
+            }
+        }) { (error) -> Void in
+            NSLog("%@", error.description)
+        }
     }
     
     func keyboardWillShow(notification: NSNotification) {

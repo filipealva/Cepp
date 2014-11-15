@@ -8,25 +8,21 @@
 
 import UIKit
 
-class CPPCepAPIManager: NSObject {
+class CPPCepAPIManager {
     
     let apiManager = AFHTTPRequestOperationManager()
     let baseURL = "http://cep.correiocontrol.com.br/%@.json"
     
-    func getAddressWithCep(cep: String, inout address: CPPAddress) -> Void {
-        
+    func getAddressWithCep(cep: String, success: (JSONAddress: AnyObject!) -> Void, failure: (error: NSError!) -> Void) -> Void {
+        //Adding the parameter CEP to the baseURL
         var requestURL = String(format: self.baseURL, cep)
-        
-        self.apiManager.GET(requestURL, parameters: nil,success:
-            {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
-                if let JSONAdress = responseObject as? Dictionary<String, String> {
-                    NSLog("%@", JSONAdress)
-                    address = CPPAddress(dictionary: JSONAdress)
-                }
-            })
-            {(operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                //TODO: Treat error!
-//                NSLog("Falhou! %@", error.description)
-            }
+        //Calling the GET method of AFNetworking through the manager
+        self.apiManager.GET(requestURL, parameters: nil,success: {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
+            //The closure below allow us to get the responseObject where the method was called
+            success(JSONAddress: responseObject)
+        }) {(operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+            //The closure below allow us to get the error where the method was called
+            failure(error: error)
+        }
     }
 }
