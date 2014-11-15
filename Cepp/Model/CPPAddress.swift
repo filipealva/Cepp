@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CPPAddress: NSObject {
+class CPPAddress {
     
     var streetAddress: String!
     var zipcode: String!
@@ -16,12 +16,11 @@ class CPPAddress: NSObject {
     var city: String!
     var state: String!
     
-    func initWithDictionary(dictionary: Dictionary<String, String>) {
+    init(dictionary: Dictionary<String, String>) {
         self.streetAddress = dictionary["logradouro"]
         self.zipcode = dictionary["cep"]
         self.neighborhood = dictionary["bairro"]
         self.city = dictionary["localidade"]
         self.state = dictionary["uf"]
     }
-   
 }
