@@ -35,7 +35,7 @@ class CPPSearchCepViewController: UIViewController {
         self.hideKeyboard()
     }
     
-    // MARK : - Actions
+    // MARK: - Actions
     
     @IBAction func searchButtonWasTouched(sender: UIButton) {
         if (self.cep.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
