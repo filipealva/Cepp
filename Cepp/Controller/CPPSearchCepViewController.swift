@@ -65,12 +65,14 @@ class CPPSearchCepViewController: UIViewController {
     }
     
     func startLoading() -> Void {
+        self.hideKeyboard()
         self.activityIndicator.alpha = 1.0
         self.activityIndicator.startAnimating()
         self.searchButton.enabled = false
     }
     
     func stopLoading() -> Void {
+        self.hideKeyboard()
         self.activityIndicator.alpha = 0
         self.activityIndicator.stopAnimating()
         self.searchButton.enabled = true

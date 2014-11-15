@@ -117,25 +117,41 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pK-5W-reI">
                                 <rect key="frame" x="165" y="260" width="270" height="80"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-5U-rgL">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-5U-rgL">
                                         <rect key="frame" x="0.0" y="8" width="220" height="65"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="#####-###" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJY-Kw-6T7">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="#####-###" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJY-Kw-6T7">
                                                 <rect key="frame" x="8" y="0.0" width="204" height="65"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="JaE-td-mzZ"/>
+                                                    <constraint firstAttribute="width" constant="204" id="qHv-Iy-FOA"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="CJY-Kw-6T7" secondAttribute="bottom" id="7ot-tg-HMN"/>
+                                            <constraint firstItem="CJY-Kw-6T7" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="leading" constant="8" id="DDB-Ug-DUw"/>
+                                            <constraint firstAttribute="centerX" secondItem="CJY-Kw-6T7" secondAttribute="centerX" id="DcO-Sl-rKl"/>
+                                            <constraint firstItem="CJY-Kw-6T7" firstAttribute="top" secondItem="0fI-5U-rgL" secondAttribute="top" id="Qvf-6y-kl7"/>
+                                            <constraint firstAttribute="centerY" secondItem="CJY-Kw-6T7" secondAttribute="centerY" id="VyN-Uk-5uk"/>
+                                            <constraint firstAttribute="trailing" secondItem="CJY-Kw-6T7" secondAttribute="trailing" constant="8" id="avT-gT-jkJ"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-d9-bxs">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-d9-bxs">
                                         <rect key="frame" x="220" y="8" width="50" height="65"/>
                                         <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="aab-9p-fux"/>
+                                            <constraint firstAttribute="height" constant="65" id="oa8-h5-qkm"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Go">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,10 +172,18 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="0fI-5U-rgL" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="top" constant="8" id="0cF-HB-sTA"/>
+                                    <constraint firstItem="0fI-5U-rgL" firstAttribute="leading" secondItem="3pK-5W-reI" secondAttribute="leading" id="G0B-lh-J56"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" id="I6n-Rh-3NQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8hO-d9-bxs" secondAttribute="trailing" id="LUC-hf-kFE"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="MVd-Hg-7rW"/>
                                     <constraint firstAttribute="height" constant="80" id="R3L-xc-jnz"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" id="Z4m-qD-qEs"/>
+                                    <constraint firstAttribute="bottom" secondItem="0fI-5U-rgL" secondAttribute="bottom" constant="7" id="ZTM-yM-fOx"/>
+                                    <constraint firstAttribute="bottom" secondItem="8hO-d9-bxs" secondAttribute="bottom" constant="7" id="azI-yb-pM5"/>
                                     <constraint firstAttribute="width" constant="270" id="fLg-lN-GyB"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="jg9-pQ-Ojx"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="top" constant="8" id="uKo-dc-HYj"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
