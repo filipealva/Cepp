@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C54C1A1673E4001006B6 /* AppDelegate.swift */; };
-		03B3C54F1A1673E4001006B6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C54E1A1673E4001006B6 /* MasterViewController.swift */; };
-		03B3C5511A1673E5001006B6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5501A1673E5001006B6 /* DetailViewController.swift */; };
 		03B3C5541A1673E5001006B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5521A1673E5001006B6 /* Main.storyboard */; };
 		03B3C5561A1673E5001006B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5551A1673E5001006B6 /* Images.xcassets */; };
 		03B3C5591A1673E5001006B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5571A1673E5001006B6 /* LaunchScreen.xib */; };
@@ -36,8 +34,6 @@
 		03B3C5471A1673E4001006B6 /* Cepp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cepp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B3C54B1A1673E4001006B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B3C54C1A1673E4001006B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03B3C54E1A1673E4001006B6 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		03B3C5501A1673E5001006B6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		03B3C5531A1673E5001006B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03B3C5551A1673E5001006B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03B3C5581A1673E5001006B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -101,8 +97,6 @@
 				03B3C57C1A180935001006B6 /* View */,
 				03B3C5701A168620001006B6 /* Controller */,
 				03B3C54C1A1673E4001006B6 /* AppDelegate.swift */,
-				03B3C54E1A1673E4001006B6 /* MasterViewController.swift */,
-				03B3C5501A1673E5001006B6 /* DetailViewController.swift */,
 				03B3C5551A1673E5001006B6 /* Images.xcassets */,
 				03B3C54A1A1673E4001006B6 /* Supporting Files */,
 			);
@@ -333,8 +327,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03B3C5511A1673E5001006B6 /* DetailViewController.swift in Sources */,
-				03B3C54F1A1673E4001006B6 /* MasterViewController.swift in Sources */,
 				03B3C56F1A16861A001006B6 /* CPPSearchCepViewController.swift in Sources */,
 				03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */,
 				03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */,
