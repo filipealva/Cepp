@@ -96,13 +96,12 @@
 			isa = PBXGroup;
 			children = (
 				03B3C5731A16A3A5001006B6 /* Model */,
+				03B3C57C1A180935001006B6 /* View */,
 				03B3C5701A168620001006B6 /* Controller */,
 				03B3C54C1A1673E4001006B6 /* AppDelegate.swift */,
 				03B3C54E1A1673E4001006B6 /* MasterViewController.swift */,
 				03B3C5501A1673E5001006B6 /* DetailViewController.swift */,
-				03B3C5521A1673E5001006B6 /* Main.storyboard */,
 				03B3C5551A1673E5001006B6 /* Images.xcassets */,
-				03B3C5571A1673E5001006B6 /* LaunchScreen.xib */,
 				03B3C54A1A1673E4001006B6 /* Supporting Files */,
 			);
 			path = Cepp;
@@ -166,6 +165,15 @@
 				03B3C5791A16B1A7001006B6 /* CPPAddress.swift */,
 			);
 			name = DTO;
+			sourceTree = "<group>";
+		};
+		03B3C57C1A180935001006B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C5571A1673E5001006B6 /* LaunchScreen.xib */,
+				03B3C5521A1673E5001006B6 /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		A01FBA1BA044B556C160E51F /* Pods */ = {
