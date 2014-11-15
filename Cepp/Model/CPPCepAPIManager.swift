@@ -13,15 +13,15 @@ class CPPCepAPIManager: NSObject {
     let apiManager = AFHTTPRequestOperationManager()
     let baseURL = "http://cep.correiocontrol.com.br/%@.json"
     
-    func getAddressWithCep(cep: String) -> Void {
+    func getAddressWithCep(cep: String, inout address: CPPAddress) -> Void {
         
         var requestURL = String(format: self.baseURL, cep)
         
         self.apiManager.GET(requestURL, parameters: nil,success:
             {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
-                var adress: CPPAddress!
                 if let JSONAdress = responseObject as? Dictionary<String, String> {
-                    adress.initWithDictionary(JSONAdress)
+                    NSLog("%@", JSONAdress)
+                    address = CPPAddress(dictionary: JSONAdress)
                 }
             })
             {(operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
