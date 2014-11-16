@@ -23,4 +23,5 @@ class CPPAddress {
         self.city = dictionary["localidade"]
         self.state = dictionary["uf"]
     }
+    
 }
