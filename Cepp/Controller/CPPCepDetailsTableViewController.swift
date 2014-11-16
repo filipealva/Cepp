@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDelegate {
+class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDelegate, CLLocationManagerDelegate {
     
+    let locationManager = CLLocationManager()
     var address: CPPAddress!
     var addressLocation: CLLocationCoordinate2D!
     var parallaxHeader: UIView!
@@ -38,6 +40,8 @@ class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDel
         self.view.addConstraint(constW)
     }
     
+    //MARK: - Actions
+    
     func putAdressOnMap() -> Void {
         let annotation = MKPointAnnotation()
         annotation.setCoordinate(self.addressLocation)
@@ -47,6 +51,33 @@ class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDel
         let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 200, 200)
         let adjusted = self.mapHeader.regionThatFits(region)
         self.mapHeader.setRegion(adjusted, animated: true)
+    }
+    
+    @IBAction func traceRouteButtonTouched(sender: UIBarButtonItem) {
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.locationManager.requestWhenInUseAuthorization()
+
+        if (CLLocationManager.locationServicesEnabled()) {
+            self.locationManager.startUpdatingLocation()
+        } else {
+            var locationServicesDisabledAlert = UIAlertView(title: "Vish!", message: "Você precisa autorizar os serviços de localização para o Cepp em suas configurações :)", delegate: nil, cancelButtonTitle: "Entendi")
+            
+            locationServicesDisabledAlert.show()
+        }
+    }
+    
+    //MARK: - CLLocationManagerDelegate
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        self.address.location = manager.location.coordinate
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        var errorWhenGetLocation = UIAlertView(title: "Oops!", message: "Ocorreu algum erro enquanto tentavamos pegar a sua localização :(", delegate: nil, cancelButtonTitle: "Beleza, vou tentar novamente")
+        
+        errorWhenGetLocation.show()
     }
     
 }

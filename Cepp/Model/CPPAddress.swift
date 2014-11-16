@@ -15,6 +15,7 @@ class CPPAddress {
     var neighborhood: String!
     var city: String!
     var state: String!
+    var location: CLLocationCoordinate2D!
     
     init(dictionary: Dictionary<String, String>) {
         self.streetAddress = dictionary["logradouro"]

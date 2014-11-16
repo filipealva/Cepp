@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0332D85D1A18494B00BC48A3 /* CPPCepDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */; };
 		0332D85F1A184C1900BC48A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0332D85E1A184C1800BC48A3 /* MapKit.framework */; };
+		038042751A19519C005535DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038042741A19519C005535DC /* CoreLocation.framework */; };
+		038042771A1951CB005535DC /* CPPLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038042761A1951CB005535DC /* CPPLocationManager.swift */; };
 		03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C54C1A1673E4001006B6 /* AppDelegate.swift */; };
 		03B3C5541A1673E5001006B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5521A1673E5001006B6 /* Main.storyboard */; };
 		03B3C5561A1673E5001006B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5551A1673E5001006B6 /* Images.xcassets */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPPCepDetailsHeader.xib; sourceTree = "<group>"; };
 		0332D85E1A184C1800BC48A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		038042741A19519C005535DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		038042761A1951CB005535DC /* CPPLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPLocationManager.swift; path = Model/CPPLocationManager.swift; sourceTree = "<group>"; };
 		03B3C5471A1673E4001006B6 /* Cepp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cepp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B3C54B1A1673E4001006B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B3C54C1A1673E4001006B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				038042751A19519C005535DC /* CoreLocation.framework in Frameworks */,
 				0332D85F1A184C1900BC48A3 /* MapKit.framework in Frameworks */,
 				481BED1F6C87802C6F95A030 /* libPods.a in Frameworks */,
 			);
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				03B3C5711A16A3A0001006B6 /* CPPCepAPIManager.swift */,
+				038042761A1951CB005535DC /* CPPLocationManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -191,6 +197,7 @@
 		A10B4F2660311E8F59B7085E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				038042741A19519C005535DC /* CoreLocation.framework */,
 				0332D85E1A184C1800BC48A3 /* MapKit.framework */,
 				F651B421768CEC843A10C468 /* libPods.a */,
 			);
@@ -337,6 +344,7 @@
 			files = (
 				03B3C56F1A16861A001006B6 /* CPPSearchCepViewController.swift in Sources */,
 				03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */,
+				038042771A1951CB005535DC /* CPPLocationManager.swift in Sources */,
 				03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */,
 				03B3C57E1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift in Sources */,
 				03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */,
