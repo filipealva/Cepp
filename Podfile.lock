@@ -18,11 +18,14 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - APParallaxHeader (0.1.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2.4)
+  - APParallaxHeader
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  APParallaxHeader: 6e7cc27c052be34e1a5655dc2fab6c40eecbbe55
 
 COCOAPODS: 0.34.4

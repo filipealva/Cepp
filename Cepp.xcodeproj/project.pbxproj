@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0332D85D1A18494B00BC48A3 /* CPPCepDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */; };
+		0332D85F1A184C1900BC48A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0332D85E1A184C1800BC48A3 /* MapKit.framework */; };
 		03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C54C1A1673E4001006B6 /* AppDelegate.swift */; };
-		03B3C54F1A1673E4001006B6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C54E1A1673E4001006B6 /* MasterViewController.swift */; };
-		03B3C5511A1673E5001006B6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5501A1673E5001006B6 /* DetailViewController.swift */; };
 		03B3C5541A1673E5001006B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5521A1673E5001006B6 /* Main.storyboard */; };
 		03B3C5561A1673E5001006B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5551A1673E5001006B6 /* Images.xcassets */; };
 		03B3C5591A1673E5001006B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5571A1673E5001006B6 /* LaunchScreen.xib */; };
@@ -18,6 +18,7 @@
 		03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5711A16A3A0001006B6 /* CPPCepAPIManager.swift */; };
 		03B3C5761A16A673001006B6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5751A16A673001006B6 /* Podfile */; };
 		03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5791A16B1A7001006B6 /* CPPAddress.swift */; };
+		03B3C57E1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */; };
 		481BED1F6C87802C6F95A030 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F651B421768CEC843A10C468 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -32,11 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPPCepDetailsHeader.xib; sourceTree = "<group>"; };
+		0332D85E1A184C1800BC48A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		03B3C5471A1673E4001006B6 /* Cepp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cepp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B3C54B1A1673E4001006B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B3C54C1A1673E4001006B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03B3C54E1A1673E4001006B6 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		03B3C5501A1673E5001006B6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		03B3C5531A1673E5001006B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03B3C5551A1673E5001006B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03B3C5581A1673E5001006B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		03B3C5751A16A673001006B6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		03B3C5771A16A71C001006B6 /* CPPObjCBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPPObjCBridging.h; sourceTree = "<group>"; };
 		03B3C5791A16B1A7001006B6 /* CPPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPAddress.swift; path = Model/CPPAddress.swift; sourceTree = "<group>"; };
+		03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPCepDetailsTableViewController.swift; path = Controller/CPPCepDetailsTableViewController.swift; sourceTree = "<group>"; };
 		148B8C53EB8E3DAC56259E0E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		75B4889AEA40EE815F261B53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F651B421768CEC843A10C468 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0332D85F1A184C1900BC48A3 /* MapKit.framework in Frameworks */,
 				481BED1F6C87802C6F95A030 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,8 +102,6 @@
 				03B3C57C1A180935001006B6 /* View */,
 				03B3C5701A168620001006B6 /* Controller */,
 				03B3C54C1A1673E4001006B6 /* AppDelegate.swift */,
-				03B3C54E1A1673E4001006B6 /* MasterViewController.swift */,
-				03B3C5501A1673E5001006B6 /* DetailViewController.swift */,
 				03B3C5551A1673E5001006B6 /* Images.xcassets */,
 				03B3C54A1A1673E4001006B6 /* Supporting Files */,
 			);
@@ -138,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				03B3C56E1A16861A001006B6 /* CPPSearchCepViewController.swift */,
+				03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -172,6 +174,7 @@
 			children = (
 				03B3C5571A1673E5001006B6 /* LaunchScreen.xib */,
 				03B3C5521A1673E5001006B6 /* Main.storyboard */,
+				0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 		A10B4F2660311E8F59B7085E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0332D85E1A184C1800BC48A3 /* MapKit.framework */,
 				F651B421768CEC843A10C468 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -276,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0332D85D1A18494B00BC48A3 /* CPPCepDetailsHeader.xib in Resources */,
 				03B3C5541A1673E5001006B6 /* Main.storyboard in Resources */,
 				03B3C5591A1673E5001006B6 /* LaunchScreen.xib in Resources */,
 				03B3C5761A16A673001006B6 /* Podfile in Resources */,
@@ -330,11 +335,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03B3C5511A1673E5001006B6 /* DetailViewController.swift in Sources */,
-				03B3C54F1A1673E4001006B6 /* MasterViewController.swift in Sources */,
 				03B3C56F1A16861A001006B6 /* CPPSearchCepViewController.swift in Sources */,
 				03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */,
 				03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */,
+				03B3C57E1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift in Sources */,
 				03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

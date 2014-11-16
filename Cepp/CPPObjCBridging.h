@@ -11,3 +11,4 @@
 #endif
 
 #import <AFNetworking/AFNetworking.h>
+#import "UIScrollView+APParallaxHeader.h"
