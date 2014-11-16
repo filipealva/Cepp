@@ -136,7 +136,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você está há 2000.00km deste endereço." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuP-BY-WcX">
-                                    <rect key="frame" x="8" y="29" width="584" height="41"/>
+                                    <rect key="frame" x="8" y="19" width="584" height="41"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
@@ -144,13 +144,13 @@
                             </subviews>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="PuP-BY-WcX" secondAttribute="trailing" constant="8" id="1vc-T7-hgM"/>
                                 <constraint firstItem="KRN-Q0-Utq" firstAttribute="leading" secondItem="70S-zg-q2n" secondAttribute="leading" constant="8" id="27j-tt-QwH"/>
-                                <constraint firstItem="PuP-BY-WcX" firstAttribute="leading" secondItem="70S-zg-q2n" secondAttribute="leading" constant="8" id="Qcq-Yp-Sf8"/>
+                                <constraint firstItem="PuP-BY-WcX" firstAttribute="top" secondItem="70S-zg-q2n" secondAttribute="top" constant="19" id="F5d-qh-JGB"/>
                                 <constraint firstAttribute="trailing" secondItem="KRN-Q0-Utq" secondAttribute="trailing" constant="8" id="RO4-0c-QV2"/>
-                                <constraint firstItem="KRN-Q0-Utq" firstAttribute="top" secondItem="PuP-BY-WcX" secondAttribute="bottom" constant="10" id="X6A-Hq-gOa"/>
-                                <constraint firstItem="PuP-BY-WcX" firstAttribute="top" secondItem="70S-zg-q2n" secondAttribute="top" constant="29" id="dwu-1o-ZPU"/>
+                                <constraint firstItem="PuP-BY-WcX" firstAttribute="leading" secondItem="70S-zg-q2n" secondAttribute="leading" constant="8" id="Tb8-6C-CFl"/>
+                                <constraint firstAttribute="trailing" secondItem="PuP-BY-WcX" secondAttribute="trailing" constant="8" id="mJ6-2z-nM1"/>
                                 <constraint firstAttribute="bottom" secondItem="KRN-Q0-Utq" secondAttribute="bottom" constant="19" id="vw7-rj-REN"/>
+                                <constraint firstItem="KRN-Q0-Utq" firstAttribute="top" secondItem="PuP-BY-WcX" secondAttribute="bottom" constant="20" id="zlg-ig-rry"/>
                             </constraints>
                         </view>
                         <sections>
