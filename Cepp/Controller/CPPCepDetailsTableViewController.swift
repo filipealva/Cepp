@@ -32,7 +32,9 @@ class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDel
         self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
         self.tableView.parallaxView.delegate = self
         
-        var constW = NSLayoutConstraint(item: self.self.mapHeader, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.tableView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        self.mapHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        var constW = NSLayoutConstraint(item: self.mapHeader, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.tableView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
         self.view.addConstraint(constW)
     }
     
