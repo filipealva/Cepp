@@ -14,3 +14,4 @@
 #import "UIScrollView+APParallaxHeader.h"
 #import <SVGeocoder/SVGeocoder.h>
 #import <SVGeocoder/SVPlacemark.h>
+#import "CMMapLauncher.h"

@@ -10,22 +10,41 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDelegate, CLLocationManagerDelegate {
+class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDelegate, APParallaxViewDelegate, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    
     var address: CPPAddress!
-    var addressLocation: CLLocationCoordinate2D!
+    var userLocation: CLLocationCoordinate2D!
     var parallaxHeader: UIView!
     var mapHeader: MKMapView!
+    var isWazeInstalled: Bool!
+    var isGoogleMapsInstalled: Bool!
+    var routeOptions = [String]()
+    
+    let WAZE_TITLE = "Waze"
+    let GOOGLEMAPS_TITLE = "Google Maps"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         CPPCepAPIManager().geocodeAddress(self.address, success: { (placemark) -> Void in
-            self.addressLocation = placemark.coordinate
+            self.address.location = placemark.coordinate
             self.putAdressOnMap()
         }) { (error) -> Void in
             
+        }
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if (CLLocationManager.locationServicesEnabled()) {
+            self.locationManager.startUpdatingLocation()
+        } else {
+            var locationServicesDisabledAlert = UIAlertView(title: "Vish!", message: "Você precisa autorizar os serviços de localização para o Cepp em suas configurações :)", delegate: nil, cancelButtonTitle: "Entendi")
+            
+            locationServicesDisabledAlert.show()
         }
         
         self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as UIView
@@ -44,33 +63,61 @@ class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDel
     
     func putAdressOnMap() -> Void {
         let annotation = MKPointAnnotation()
-        annotation.setCoordinate(self.addressLocation)
+        annotation.setCoordinate(self.userLocation)
         annotation.title = self.address.streetAddress
+        
         self.mapHeader.addAnnotation(annotation)
         
         let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 200, 200)
         let adjusted = self.mapHeader.regionThatFits(region)
+        
         self.mapHeader.setRegion(adjusted, animated: true)
     }
     
-    @IBAction func traceRouteButtonTouched(sender: UIBarButtonItem) {
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        self.locationManager.requestWhenInUseAuthorization()
-
-        if (CLLocationManager.locationServicesEnabled()) {
-            self.locationManager.startUpdatingLocation()
+    func traceRoute(app: CMMapApp) {
+        var mapPoint = CMMapPoint(name: self.address.streetAddress, coordinate: self.address.location)
+        CMMapLauncher.launchMapApp(app, forDirectionsTo: mapPoint)
+    }
+    
+    func verifyRouteOptions() -> Void {
+        self.isWazeInstalled = CMMapLauncher.isMapAppInstalled(CMMapApp.Waze)
+        self.isGoogleMapsInstalled = CMMapLauncher.isMapAppInstalled(CMMapApp.GoogleMaps)
+        
+        if (!self.isGoogleMapsInstalled && !self.isWazeInstalled) {
+            self.traceRoute(CMMapApp.AppleMaps)
         } else {
-            var locationServicesDisabledAlert = UIAlertView(title: "Vish!", message: "Você precisa autorizar os serviços de localização para o Cepp em suas configurações :)", delegate: nil, cancelButtonTitle: "Entendi")
+            self.routeOptions.append("Maps")
             
-            locationServicesDisabledAlert.show()
+            if (self.isGoogleMapsInstalled == true) {
+                self.routeOptions.append(self.GOOGLEMAPS_TITLE)
+            }
+            
+            if (self.isWazeInstalled == true) {
+                self.routeOptions.append(self.WAZE_TITLE)
+            }
+            
+            var mapAppAsk = UIActionSheet()
+            mapAppAsk.title = "Com qual app você prefere?"
+            mapAppAsk.delegate = self
+            
+            for app in self.routeOptions {
+                mapAppAsk.addButtonWithTitle(app)
+            }
+            
+            mapAppAsk.cancelButtonIndex = mapAppAsk.addButtonWithTitle("Cancelar")
+            mapAppAsk.showInView(self.view)
         }
+        
+    }
+    
+    @IBAction func traceRouteButtonTouched(sender: UIBarButtonItem) {
+        self.verifyRouteOptions()
     }
     
     //MARK: - CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        self.address.location = manager.location.coordinate
+        self.userLocation = manager.location.coordinate
         self.locationManager.stopUpdatingLocation()
     }
     
@@ -78,6 +125,22 @@ class CPPCepDetailsTableViewController: UITableViewController, APParallaxViewDel
         var errorWhenGetLocation = UIAlertView(title: "Oops!", message: "Ocorreu algum erro enquanto tentavamos pegar a sua localização :(", delegate: nil, cancelButtonTitle: "Beleza, vou tentar novamente")
         
         errorWhenGetLocation.show()
+    }
+    
+    //MARK: UIActionSheetDelegate
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        if (buttonIndex != self.routeOptions.count) {
+            var buttonTitle = self.routeOptions[buttonIndex]
+            
+            if (buttonIndex == 0) {
+                self.traceRoute(CMMapApp.AppleMaps)
+            } else if (buttonTitle == self.GOOGLEMAPS_TITLE) {
+                self.traceRoute(CMMapApp.GoogleMaps)
+            } else {
+                self.traceRoute(CMMapApp.Waze)
+            }
+        }
     }
     
 }
