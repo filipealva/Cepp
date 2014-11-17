@@ -38,9 +38,12 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.locationManager.requestWhenInUseAuthorization()
         
+        //Verifying if the user allowed the location services
         if (CLLocationManager.locationServicesEnabled()) {
+            //Starting the location updates
             self.locationManager.startUpdatingLocation()
         } else {
+            //Notifying the user that he must allows us to get your location
             var locationServicesDisabledAlert = UIAlertView(title: "Vish!", message: "Você precisa autorizar os serviços de localização para o Cepp em suas configurações :)", delegate: nil, cancelButtonTitle: "Entendi")
             
             locationServicesDisabledAlert.show()
