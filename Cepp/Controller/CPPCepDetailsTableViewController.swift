@@ -126,19 +126,21 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
             //Launching the Apple Maps app
             self.traceRoute(CMMapApp.AppleMaps)
         } else {
-            //Adding the Apple Maps app on the routeOptions list
-            self.routeOptions.append("Maps")
-            
-            //Verifying if the Google Maps app is installed
-            if (self.isGoogleMapsInstalled == true) {
-                //Adding the Google Maps app on the routeOptions list
-                self.routeOptions.append(self.GOOGLEMAPS_TITLE)
-            }
-            
-            //Verifying if the Waze App is installed
-            if (self.isWazeInstalled == true) {
-                //Adding the Waze App on the routeOptions list
-                self.routeOptions.append(self.WAZE_TITLE)
+            if (self.routeOptions.count == 0) {
+                //Adding the Apple Maps app on the routeOptions list
+                self.routeOptions.append("Maps")
+                
+                //Verifying if the Google Maps app is installed
+                if (self.isGoogleMapsInstalled == true) {
+                    //Adding the Google Maps app on the routeOptions list
+                    self.routeOptions.append(self.GOOGLEMAPS_TITLE)
+                }
+                
+                //Verifying if the Waze App is installed
+                if (self.isWazeInstalled == true) {
+                    //Adding the Waze App on the routeOptions list
+                    self.routeOptions.append(self.WAZE_TITLE)
+                }
             }
             
             //Configuring the mapAppAsk UIActionSheet
