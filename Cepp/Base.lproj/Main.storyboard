@@ -44,19 +44,20 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="0"/>
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-d9-bxs">
-                                        <rect key="frame" x="220" y="8" width="50" height="65"/>
-                                        <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-Sn-fCs">
+                                        <rect key="frame" x="180" y="30" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-d9-bxs">
+                                        <rect key="frame" x="218" y="8" width="50" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="aab-9p-fux"/>
                                             <constraint firstAttribute="height" constant="65" id="oa8-h5-qkm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="Go">
+                                        <state key="normal" image="searchCEPButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -69,19 +70,16 @@
                                             <action selector="searchButtonWasTouched:" destination="cjG-GB-y54" eventType="touchUpInside" id="eIJ-7e-68c"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-Sn-fCs">
-                                        <rect key="frame" x="180" y="30" width="20" height="20"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="0fI-5U-rgL" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="top" constant="8" id="0cF-HB-sTA"/>
                                     <constraint firstItem="0fI-5U-rgL" firstAttribute="leading" secondItem="3pK-5W-reI" secondAttribute="leading" id="G0B-lh-J56"/>
-                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" id="I6n-Rh-3NQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="8hO-d9-bxs" secondAttribute="trailing" id="LUC-hf-kFE"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" constant="-2" id="I6n-Rh-3NQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8hO-d9-bxs" secondAttribute="trailing" constant="2" id="LUC-hf-kFE"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="MVd-Hg-7rW"/>
                                     <constraint firstAttribute="height" constant="80" id="R3L-xc-jnz"/>
-                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" id="Z4m-qD-qEs"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" constant="-2" id="Z4m-qD-qEs"/>
                                     <constraint firstAttribute="bottom" secondItem="0fI-5U-rgL" secondAttribute="bottom" constant="7" id="ZTM-yM-fOx"/>
                                     <constraint firstAttribute="bottom" secondItem="8hO-d9-bxs" secondAttribute="bottom" constant="7" id="azI-yb-pM5"/>
                                     <constraint firstAttribute="width" constant="270" id="fLg-lN-GyB"/>
@@ -90,7 +88,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="2"/>
+                                        <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -317,4 +315,7 @@
             <point key="canvasLocation" x="-133" y="130"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="searchCEPButton" width="50" height="65"/>
+    </resources>
 </document>

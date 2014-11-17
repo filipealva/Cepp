@@ -75,7 +75,6 @@ class CPPSearchCepViewController: UIViewController {
         }
     }
     
-    //Method that puts the view in loading state
     func startLoading() -> Void {
         self.hideKeyboard()
         self.activityIndicator.alpha = 1.0
@@ -83,7 +82,6 @@ class CPPSearchCepViewController: UIViewController {
         self.searchButton.enabled = false
     }
     
-    //Method that puts the view in normal state
     func stopLoading() -> Void {
         self.hideKeyboard()
         self.activityIndicator.alpha = 0
@@ -91,7 +89,6 @@ class CPPSearchCepViewController: UIViewController {
         self.searchButton.enabled = true
     }
     
-    //Method that hides the keyboard
     func hideKeyboard() -> Void {
         self.view.endEditing(true)
     }
