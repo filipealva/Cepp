@@ -58,8 +58,13 @@ class CPPSearchCepViewController: UIViewController {
                 }
             }) { (error) -> Void in
                 //Notifying the user that an error ocurred
-                //TODO: Treat the error
-                NSLog("%@", error.description)
+                if (error.code == -1009) {
+                    var noConnectionAlert = UIAlertView(title: "Oops :(", message: "Não foi possível buscar o endereço, verifique sua conexão", delegate: nil, cancelButtonTitle: "Ok")
+                    noConnectionAlert.show()
+                } else {
+                    var invalidZipcode = UIAlertView(title: "Oops!", message: "CEP inválido", delegate: nil, cancelButtonTitle: "Ok")
+                    invalidZipcode.show()
+                }
                 self.stopLoading()
             }
         } else {
