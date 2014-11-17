@@ -64,7 +64,11 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         self.putAdressOnMap()
         
         //Setting the address data on view's fields
-        self.streetAddress.text = self.address.streetAddress
+        if (self.address.streetAddress == nil) {
+            self.streetAddress.text = "Logradouro indisponível"
+        } else {
+            self.streetAddress.text = self.address.streetAddress
+        }
         self.zipcode.text = self.address.zipcode
         self.cityAndState.text = String(format: "%@ - %@", self.address.city, self.address.state)
     }
@@ -75,7 +79,12 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         //Creating the annotation
         let annotation = MKPointAnnotation()
         annotation.setCoordinate(self.address.location)
-        annotation.title = self.address.streetAddress
+        
+        if (self.address.streetAddress == nil) {
+            annotation.title = self.address.city + " - " + self.address.state
+        } else {
+            annotation.title = self.address.streetAddress
+        }
         
         //Adding the annotation on the map
         self.mapHeader.addAnnotation(annotation)
