@@ -128,7 +128,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRN-Q0-Utq">
                                     <rect key="frame" x="8" y="80" width="584" height="1"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.73782286352040816" green="0.73782286352040816" blue="0.73782286352040816" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="7eu-lD-NpD"/>
                                     </constraints>
@@ -332,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="1343" y="130"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="ZQ1-eq-7nA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WWS-xW-0zc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WWS-xW-0zc" customClass="CPPNavigationViewController" customModule="Cepp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZBk-0h-Sx6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
