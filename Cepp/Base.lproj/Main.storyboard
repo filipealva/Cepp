@@ -93,11 +93,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digite o CEP e clique no botão para buscar." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9bd-0M-k3d">
+                                <rect key="frame" x="16" y="340" width="568" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="wdu-J5-DRT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9bd-0M-k3d" secondAttribute="trailing" constant="16" id="3iL-6J-Oul"/>
                             <constraint firstItem="3pK-5W-reI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IOK-23-8vW" secondAttribute="centerY" constant="30" id="F4u-wE-4rm"/>
+                            <constraint firstItem="9bd-0M-k3d" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="bottom" id="aS9-yA-Y2Y"/>
                             <constraint firstItem="oeD-LV-Qn0" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="bottom" priority="999" constant="260" id="kQ1-Oj-LL9"/>
+                            <constraint firstItem="9bd-0M-k3d" firstAttribute="leading" secondItem="9T5-7y-cgt" secondAttribute="leading" constant="16" id="lXf-gY-aV2"/>
                             <constraint firstAttribute="centerX" secondItem="3pK-5W-reI" secondAttribute="centerX" id="x9u-66-ocM"/>
                         </constraints>
                     </view>
