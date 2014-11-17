@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDelegate, APParallaxViewDelegate, CLLocationManagerDelegate {
+class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var userDistanceToAddress: UILabel!
     @IBOutlet weak var streetAddress: UILabel!
@@ -54,7 +54,6 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
         
         self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
-        self.tableView.parallaxView.delegate = self
         
         //Configuring mapHeader width
         self.mapHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
