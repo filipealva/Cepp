@@ -36,7 +36,12 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         //Configuring the location manager
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        self.locationManager.requestWhenInUseAuthorization()
+        
+        var osVersion = UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch)
+        
+        if (osVersion == .OrderedSame || osVersion == .OrderedDescending) {
+            self.locationManager.requestWhenInUseAuthorization()
+        }
         
         //Verifying if the user allowed the location services
         if (CLLocationManager.locationServicesEnabled()) {
