@@ -135,8 +135,8 @@
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você está há 2000.00km deste endereço." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuP-BY-WcX">
                                     <rect key="frame" x="8" y="19" width="584" height="41"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -154,27 +154,39 @@
                         <sections>
                             <tableViewSection id="Ciy-Hq-WjK">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="cDB-AO-V1B">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="cDB-AO-V1B">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDB-AO-V1B" id="exI-k8-14A">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRl-g8-x9m">
-                                                    <rect key="frame" x="8" y="8" width="584" height="65"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="80"/>
                                                     <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logradouro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHt-qd-JSh">
+                                                            <rect key="frame" x="8" y="8" width="137" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="137" id="O7M-mY-BSC"/>
+                                                                <constraint firstAttribute="height" constant="21" id="qCi-ux-zbR"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua José Armindo Vieira da Rosa Julio, 1099" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCA-IE-aEB">
-                                                            <rect key="frame" x="8" y="8" width="568" height="49"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="8" y="23" width="568" height="49"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="XCA-IE-aEB" firstAttribute="top" secondItem="gRl-g8-x9m" secondAttribute="top" constant="8" id="Mah-Hn-QRG"/>
+                                                        <constraint firstItem="XCA-IE-aEB" firstAttribute="top" secondItem="gRl-g8-x9m" secondAttribute="top" constant="23" id="Mah-Hn-QRG"/>
+                                                        <constraint firstItem="KHt-qd-JSh" firstAttribute="top" secondItem="gRl-g8-x9m" secondAttribute="top" constant="8" id="Zlk-Hl-CfB"/>
                                                         <constraint firstAttribute="bottom" secondItem="XCA-IE-aEB" secondAttribute="bottom" constant="8" id="ll2-gS-RgQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="XCA-IE-aEB" secondAttribute="trailing" constant="8" id="tA3-TF-h0D"/>
                                                         <constraint firstItem="XCA-IE-aEB" firstAttribute="leading" secondItem="gRl-g8-x9m" secondAttribute="leading" constant="8" id="w5x-Nc-ofh"/>
+                                                        <constraint firstItem="KHt-qd-JSh" firstAttribute="leading" secondItem="gRl-g8-x9m" secondAttribute="leading" constant="8" id="x3o-JQ-6Wd"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -192,17 +204,27 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="Dvf-A8-pRU">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="Dvf-A8-pRU">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dvf-A8-pRU" id="I0z-I0-3VO">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpF-r9-Mxv">
-                                                    <rect key="frame" x="8" y="8" width="584" height="65"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="80"/>
                                                     <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CEP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgK-e3-Enj">
+                                                            <rect key="frame" x="8" y="8" width="137" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="137" id="DQ4-Oi-Ive"/>
+                                                                <constraint firstAttribute="height" constant="21" id="p5d-Qt-A9J"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="94034-060" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH3-e5-GLj">
-                                                            <rect key="frame" x="8" y="8" width="568" height="49"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="8" y="23" width="568" height="49"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -210,9 +232,11 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="zH3-e5-GLj" secondAttribute="bottom" constant="8" id="6Zv-O5-A0k"/>
-                                                        <constraint firstItem="zH3-e5-GLj" firstAttribute="top" secondItem="CpF-r9-Mxv" secondAttribute="top" constant="8" id="abr-NU-bXz"/>
+                                                        <constraint firstItem="FgK-e3-Enj" firstAttribute="top" secondItem="CpF-r9-Mxv" secondAttribute="top" constant="8" id="WRC-EB-sTU"/>
+                                                        <constraint firstItem="zH3-e5-GLj" firstAttribute="top" secondItem="CpF-r9-Mxv" secondAttribute="top" constant="23" id="abr-NU-bXz"/>
                                                         <constraint firstAttribute="trailing" secondItem="zH3-e5-GLj" secondAttribute="trailing" constant="8" id="c36-C2-Quh"/>
                                                         <constraint firstItem="zH3-e5-GLj" firstAttribute="leading" secondItem="CpF-r9-Mxv" secondAttribute="leading" constant="8" id="liv-We-fnt"/>
+                                                        <constraint firstItem="FgK-e3-Enj" firstAttribute="leading" secondItem="CpF-r9-Mxv" secondAttribute="leading" constant="8" id="rcJ-e5-aaM"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -230,25 +254,37 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="DXH-il-flc">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="DXH-il-flc">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DXH-il-flc" id="QcE-wS-G4Y">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1v-wC-WVI">
-                                                    <rect key="frame" x="8" y="8" width="584" height="65"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Porto Alegre - RS" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBM-YF-Efn">
-                                                            <rect key="frame" x="8" y="8" width="568" height="49"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="8" y="23" width="568" height="49"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Região" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3b-Ko-TmF">
+                                                            <rect key="frame" x="8" y="8" width="137" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="Kb8-e8-ihy"/>
+                                                                <constraint firstAttribute="width" constant="137" id="Pat-Qw-eIm"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="BBM-YF-Efn" firstAttribute="leading" secondItem="s1v-wC-WVI" secondAttribute="leading" constant="8" id="34S-on-O1S"/>
-                                                        <constraint firstItem="BBM-YF-Efn" firstAttribute="top" secondItem="s1v-wC-WVI" secondAttribute="top" constant="8" id="5fj-on-Ltf"/>
+                                                        <constraint firstItem="BBM-YF-Efn" firstAttribute="top" secondItem="s1v-wC-WVI" secondAttribute="top" constant="23" id="5fj-on-Ltf"/>
+                                                        <constraint firstItem="x3b-Ko-TmF" firstAttribute="leading" secondItem="s1v-wC-WVI" secondAttribute="leading" constant="8" id="9fO-ZC-Y3O"/>
+                                                        <constraint firstItem="x3b-Ko-TmF" firstAttribute="top" secondItem="s1v-wC-WVI" secondAttribute="top" constant="8" id="G4e-KK-WQg"/>
                                                         <constraint firstAttribute="bottom" secondItem="BBM-YF-Efn" secondAttribute="bottom" constant="8" id="KeB-GS-ofb"/>
                                                         <constraint firstAttribute="trailing" secondItem="BBM-YF-Efn" secondAttribute="trailing" constant="8" id="w8C-yD-BDg"/>
                                                     </constraints>
