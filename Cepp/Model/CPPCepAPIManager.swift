@@ -27,14 +27,16 @@ class CPPCepAPIManager {
     }
     
      func geocodeAddress(address: CPPAddress!, callback: (placemark: SVPlacemark!) -> Void) -> Void {
-        
+        //Configuring the completeAddress variable
         var completeAddress = address.streetAddress + ", " + address.city + ", " + address.state
         
+        //Calling the SVGeocoder method to geocode the address
         SVGeocoder.geocode(completeAddress, completion: { (placemarks, urlResponse, error) -> Void in
             if ((error) != nil) {
+                //TODO: Treat error
                 NSLog("Geocode error")
             }
-            
+            //Getting the placemark and passing by parameter on the callback method
             var placemark: SVPlacemark = placemarks[0] as SVPlacemark
             callback(placemark: placemark)
         })
