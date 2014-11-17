@@ -36,7 +36,12 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         //Configuring the location manager
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        self.locationManager.requestWhenInUseAuthorization()
+        
+        var osVersion = UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch)
+        
+        if (osVersion == .OrderedSame || osVersion == .OrderedDescending) {
+            self.locationManager.requestWhenInUseAuthorization()
+        }
         
         //Verifying if the user allowed the location services
         if (CLLocationManager.locationServicesEnabled()) {
@@ -64,8 +69,12 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         self.putAdressOnMap()
         
         //Setting the address data on view's fields
-        self.streetAddress.text = self.address.streetAddress
-        self.zipcode.text = self.address.zipcode
+        if (self.address.streetAddress == nil) {
+            self.streetAddress.text = "Logradouro indisponível"
+        } else {
+            self.streetAddress.text = self.address.streetAddress
+        }
+        self.zipcode.text = self.formatCep(self.address.zipcode)
         self.cityAndState.text = String(format: "%@ - %@", self.address.city, self.address.state)
     }
     
@@ -75,7 +84,12 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         //Creating the annotation
         let annotation = MKPointAnnotation()
         annotation.setCoordinate(self.address.location)
-        annotation.title = self.address.streetAddress
+        
+        if (self.address.streetAddress == nil) {
+            annotation.title = self.address.city + " - " + self.address.state
+        } else {
+            annotation.title = self.address.streetAddress
+        }
         
         //Adding the annotation on the map
         self.mapHeader.addAnnotation(annotation)
@@ -85,6 +99,13 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 200, 200)
         let adjusted = self.mapHeader.regionThatFits(region)
         self.mapHeader.setRegion(adjusted, animated: true)
+    }
+    
+    func formatCep(cep: NSString) -> String {
+        var formattedCep: NSMutableString =  cep.mutableCopy() as NSMutableString
+        formattedCep.insertString("-", atIndex: 5)
+        
+        return formattedCep
     }
     
     func traceRoute(app: CMMapApp) {
@@ -112,19 +133,21 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
             //Launching the Apple Maps app
             self.traceRoute(CMMapApp.AppleMaps)
         } else {
-            //Adding the Apple Maps app on the routeOptions list
-            self.routeOptions.append("Maps")
-            
-            //Verifying if the Google Maps app is installed
-            if (self.isGoogleMapsInstalled == true) {
-                //Adding the Google Maps app on the routeOptions list
-                self.routeOptions.append(self.GOOGLEMAPS_TITLE)
-            }
-            
-            //Verifying if the Waze App is installed
-            if (self.isWazeInstalled == true) {
-                //Adding the Waze App on the routeOptions list
-                self.routeOptions.append(self.WAZE_TITLE)
+            if (self.routeOptions.count == 0) {
+                //Adding the Apple Maps app on the routeOptions list
+                self.routeOptions.append("Maps")
+                
+                //Verifying if the Google Maps app is installed
+                if (self.isGoogleMapsInstalled == true) {
+                    //Adding the Google Maps app on the routeOptions list
+                    self.routeOptions.append(self.GOOGLEMAPS_TITLE)
+                }
+                
+                //Verifying if the Waze App is installed
+                if (self.isWazeInstalled == true) {
+                    //Adding the Waze App on the routeOptions list
+                    self.routeOptions.append(self.WAZE_TITLE)
+                }
             }
             
             //Configuring the mapAppAsk UIActionSheet

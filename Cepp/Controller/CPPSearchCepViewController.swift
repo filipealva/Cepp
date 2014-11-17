@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CPPSearchCepViewController: UIViewController {
+class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
     // FA NOTE: Special thanks to Mauricio T. Zaquia by his Auto Layout lesson! :D
     @IBOutlet weak var searchCepContainerView: UIView!
     @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
@@ -23,6 +23,8 @@ class CPPSearchCepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.cep.delegate = self
+        
         //Adding the centerY constraint programmatically because we need to manage when add or remove this constraint
         self.centerSearchViewConstraint = NSLayoutConstraint(item: self.searchCepContainerView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
         
@@ -31,6 +33,10 @@ class CPPSearchCepViewController: UIViewController {
         //Adding the keyboard notifications on notification center
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.cep.text = ""
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -44,7 +50,7 @@ class CPPSearchCepViewController: UIViewController {
         if (self.cep.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
             self.startLoading()
             //Calling the APIManager method that gets the address by the zipcode
-            CPPCepAPIManager().getAddressWithCep(self.cep.text, success: { (responseObject) -> Void in
+            CPPCepAPIManager().getAddressWithCep(self.removeCepFormatter(self.cep.text), success: { (responseObject) -> Void in
                 //Verifying the responseObject and creating the CPPAdress
                 if let JSONAdress = responseObject as? Dictionary<String, String> {
                     self.address = CPPAddress(dictionary: JSONAdress)
@@ -75,7 +81,6 @@ class CPPSearchCepViewController: UIViewController {
         }
     }
     
-    //Method that puts the view in loading state
     func startLoading() -> Void {
         self.hideKeyboard()
         self.activityIndicator.alpha = 1.0
@@ -83,7 +88,6 @@ class CPPSearchCepViewController: UIViewController {
         self.searchButton.enabled = false
     }
     
-    //Method that puts the view in normal state
     func stopLoading() -> Void {
         self.hideKeyboard()
         self.activityIndicator.alpha = 0
@@ -91,9 +95,12 @@ class CPPSearchCepViewController: UIViewController {
         self.searchButton.enabled = true
     }
     
-    //Method that hides the keyboard
     func hideKeyboard() -> Void {
         self.view.endEditing(true)
+    }
+    
+    func removeCepFormatter(cepFormatted: String) -> String {
+        return cepFormatted.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
     
     //Method that adjust the searchCepContainerView when the keyboard will show
@@ -107,7 +114,7 @@ class CPPSearchCepViewController: UIViewController {
             initialConstant = keyboardConstraint.constant
         }
         
-        keyboardConstraint.constant = keyboardSize.height + 30
+        keyboardConstraint.constant = keyboardSize.height + 40
         
         let animationDuration = Double(dict[UIKeyboardAnimationDurationUserInfoKey] as NSNumber) as NSTimeInterval
         UIView.animateWithDuration(animationDuration) {
@@ -130,6 +137,37 @@ class CPPSearchCepViewController: UIViewController {
         }
     }
 
+    //MARK: UITextFieldDelegate
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        //Getting the textfield text
+        var text: NSString = textField.text as NSString
+        text = text.stringByReplacingCharactersInRange(range, withString: string)
+        
+        //Adding the textfield text on a mutable string
+        var mutableString: NSMutableString = text.mutableCopy() as NSMutableString
+        
+        //Verifying if the user not tapped the delete key
+        if(!(range.length == 1 && string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0)) {
+            //Limiting the text length
+            if (text.length == 10) {
+                return false
+            }
+            
+            //Adding the formatter character at the correct position
+            if (mutableString.length == 6) {
+                if (mutableString.characterAtIndex(5).description != "-") {
+                    mutableString.insertString("-", atIndex: 5)
+                }
+            }
+        }
+        
+        //Putting the string with the formatter character on the textfield
+        textField.text = mutableString
+        
+        return false
+    }
+    
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
