@@ -19,13 +19,19 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - APParallaxHeader (0.1.6)
+  - CMMapLauncher (1.1.0)
+  - SVGeocoder (0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2.4)
   - APParallaxHeader
+  - CMMapLauncher
+  - SVGeocoder
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   APParallaxHeader: 6e7cc27c052be34e1a5655dc2fab6c40eecbbe55
+  CMMapLauncher: 4b95899cc39bd14dfa3e8525470e34cb8edbb028
+  SVGeocoder: 67f187000ddf9abdd979137d136cd8b30b53e2f6
 
 COCOAPODS: 0.34.4

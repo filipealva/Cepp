@@ -109,7 +109,7 @@
                         <outlet property="keyboardConstraint" destination="kQ1-Oj-LL9" id="E8Q-NJ-oQB"/>
                         <outlet property="searchButton" destination="8hO-d9-bxs" id="2bK-zF-92h"/>
                         <outlet property="searchCepContainerView" destination="3pK-5W-reI" id="ppm-P5-yNG"/>
-                        <segue destination="W9K-5b-3Hc" kind="show" identifier="showCepDetails" id="rYo-Gp-YCe"/>
+                        <segue destination="W9K-5b-3Hc" kind="show" identifier="showCepDetails" id="Jdb-Og-RCv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHP-1l-0s8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,6 +278,21 @@
                             <outlet property="delegate" destination="W9K-5b-3Hc" id="B5q-Mf-MVq"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Detalhes" id="4cS-oM-HNH">
+                        <barButtonItem key="rightBarButtonItem" title="Rota" style="done" id="L0i-gK-vPf">
+                            <connections>
+                                <action selector="traceRouteButtonTouched:" destination="W9K-5b-3Hc" id="UOW-Yp-few"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cityAndState" destination="BBM-YF-Efn" id="5dG-eo-hFu"/>
+                        <outlet property="streetAddress" destination="XCA-IE-aEB" id="cXh-bX-x34"/>
+                        <outlet property="userDistanceToAddress" destination="PuP-BY-WcX" id="dZZ-mh-Esa"/>
+                        <outlet property="zipcode" destination="zH3-e5-GLj" id="nwf-X8-pWB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0X-XT-XOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
