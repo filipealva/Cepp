@@ -23,25 +23,10 @@
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-5U-rgL">
                                         <rect key="frame" x="0.0" y="8" width="220" height="65"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="#####-###" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CJY-Kw-6T7">
-                                                <rect key="frame" x="8" y="0.0" width="204" height="65"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="65" id="JaE-td-mzZ"/>
-                                                    <constraint firstAttribute="width" constant="204" id="qHv-Iy-FOA"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                            </textField>
-                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="CJY-Kw-6T7" secondAttribute="bottom" id="7ot-tg-HMN"/>
-                                            <constraint firstItem="CJY-Kw-6T7" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="leading" constant="8" id="DDB-Ug-DUw"/>
-                                            <constraint firstAttribute="centerX" secondItem="CJY-Kw-6T7" secondAttribute="centerX" id="DcO-Sl-rKl"/>
-                                            <constraint firstItem="CJY-Kw-6T7" firstAttribute="top" secondItem="0fI-5U-rgL" secondAttribute="top" id="Qvf-6y-kl7"/>
-                                            <constraint firstAttribute="centerY" secondItem="CJY-Kw-6T7" secondAttribute="centerY" id="VyN-Uk-5uk"/>
-                                            <constraint firstAttribute="trailing" secondItem="CJY-Kw-6T7" secondAttribute="trailing" constant="8" id="avT-gT-jkJ"/>
+                                            <constraint firstAttribute="height" constant="65" id="Tt5-F9-0MP"/>
+                                            <constraint firstAttribute="width" constant="220" id="agN-ym-hdC"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -49,14 +34,23 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="#####-###" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CJY-Kw-6T7">
+                                        <rect key="frame" x="8" y="8" width="204" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="50p-ah-KKV"/>
+                                            <constraint firstAttribute="width" constant="204" id="uhG-If-6e2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
                                     <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-Sn-fCs">
                                         <rect key="frame" x="180" y="30" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-d9-bxs">
-                                        <rect key="frame" x="218" y="8" width="50" height="65"/>
+                                        <rect key="frame" x="220" y="8" width="50" height="65"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="aab-9p-fux"/>
-                                            <constraint firstAttribute="height" constant="65" id="oa8-h5-qkm"/>
+                                            <constraint firstAttribute="height" constant="65" id="OzC-FS-VaU"/>
+                                            <constraint firstAttribute="width" constant="50" id="cPP-UL-fxw"/>
                                         </constraints>
                                         <state key="normal" image="searchCEPButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,18 +68,20 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="0fI-5U-rgL" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="top" constant="8" id="0cF-HB-sTA"/>
-                                    <constraint firstItem="0fI-5U-rgL" firstAttribute="leading" secondItem="3pK-5W-reI" secondAttribute="leading" id="G0B-lh-J56"/>
-                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" constant="-2" id="I6n-Rh-3NQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="8hO-d9-bxs" secondAttribute="trailing" constant="2" id="LUC-hf-kFE"/>
+                                    <constraint firstAttribute="trailing" secondItem="8hO-d9-bxs" secondAttribute="trailing" id="3eF-rd-Oy7"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" id="GYl-uI-h8f"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="MVd-Hg-7rW"/>
                                     <constraint firstAttribute="height" constant="80" id="R3L-xc-jnz"/>
-                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="0fI-5U-rgL" secondAttribute="trailing" constant="-2" id="Z4m-qD-qEs"/>
-                                    <constraint firstAttribute="bottom" secondItem="0fI-5U-rgL" secondAttribute="bottom" constant="7" id="ZTM-yM-fOx"/>
-                                    <constraint firstAttribute="bottom" secondItem="8hO-d9-bxs" secondAttribute="bottom" constant="7" id="azI-yb-pM5"/>
+                                    <constraint firstAttribute="bottom" secondItem="CJY-Kw-6T7" secondAttribute="bottom" constant="7" id="S1m-Dk-XGq"/>
+                                    <constraint firstItem="0fI-5U-rgL" firstAttribute="leading" secondItem="3pK-5W-reI" secondAttribute="leading" id="U7n-KH-6zp"/>
+                                    <constraint firstItem="0fI-5U-rgL" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="top" constant="8" id="Vk1-9K-Bos"/>
                                     <constraint firstAttribute="width" constant="270" id="fLg-lN-GyB"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="leading" secondItem="CJY-Kw-6T7" secondAttribute="trailing" constant="8" id="jIf-ON-Nwz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="jg9-pQ-Ojx"/>
-                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="top" constant="8" id="uKo-dc-HYj"/>
+                                    <constraint firstItem="CJY-Kw-6T7" firstAttribute="leading" secondItem="3pK-5W-reI" secondAttribute="leading" constant="8" id="nEz-bR-kS9"/>
+                                    <constraint firstAttribute="bottom" secondItem="8hO-d9-bxs" secondAttribute="bottom" constant="7" id="pWf-k9-p1i"/>
+                                    <constraint firstAttribute="bottom" secondItem="0fI-5U-rgL" secondAttribute="bottom" constant="7" id="ujL-HO-FiJ"/>
+                                    <constraint firstItem="8hO-d9-bxs" firstAttribute="top" secondItem="3pK-5W-reI" secondAttribute="top" constant="8" id="xe0-Qa-4At"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
