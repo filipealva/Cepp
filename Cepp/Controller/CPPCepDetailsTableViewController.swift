@@ -74,7 +74,7 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         } else {
             self.streetAddress.text = self.address.streetAddress
         }
-        self.zipcode.text = self.address.zipcode
+        self.zipcode.text = self.formatCep(self.address.zipcode)
         self.cityAndState.text = String(format: "%@ - %@", self.address.city, self.address.state)
     }
     
@@ -99,6 +99,13 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 200, 200)
         let adjusted = self.mapHeader.regionThatFits(region)
         self.mapHeader.setRegion(adjusted, animated: true)
+    }
+    
+    func formatCep(cep: NSString) -> String {
+        var formattedCep: NSMutableString =  cep.mutableCopy() as NSMutableString
+        formattedCep.insertString("-", atIndex: 5)
+        
+        return formattedCep
     }
     
     func traceRoute(app: CMMapApp) {
