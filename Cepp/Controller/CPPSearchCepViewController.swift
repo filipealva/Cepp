@@ -23,15 +23,18 @@ class CPPSearchCepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Adding the centerY constraint programmatically because we need to manage when add or remove this constraint
         self.centerSearchViewConstraint = NSLayoutConstraint(item: self.searchCepContainerView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
         
         view.addConstraint(self.centerSearchViewConstraint)
         
+        //Adding the keyboard notifications on notification center
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        //Hidding the keyboard
         self.hideKeyboard()
     }
     
@@ -40,27 +43,34 @@ class CPPSearchCepViewController: UIViewController {
     @IBAction func searchButtonWasTouched(sender: UIButton) {
         if (self.cep.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
             self.startLoading()
+            //Calling the APIManager method that gets the address by the zipcode
             CPPCepAPIManager().getAddressWithCep(self.cep.text, success: { (responseObject) -> Void in
+                //Verifying the responseObject and creating the CPPAdress
                 if let JSONAdress = responseObject as? Dictionary<String, String> {
-                    NSLog("Funcionou: %@", JSONAdress)
                     self.address = CPPAddress(dictionary: JSONAdress)
+                    //Calling the APIManager method that geocode the address
                     CPPCepAPIManager().geocodeAddress(self.address, callback: { (placemark) -> Void in
+                        //Configuring the address location and showing the details view
                         self.address.location = placemark.coordinate
                         self.performSegueWithIdentifier("showCepDetails", sender: self)
                         self.stopLoading()
                     })
                 }
             }) { (error) -> Void in
+                //Notifying the user that an error ocurred
+                //TODO: Treat the error
                 NSLog("%@", error.description)
                 self.stopLoading()
             }
         } else {
+            //Notifying the user that he must enter a zipcode before search
             var emptyAlert = UIAlertView(title: "Oops!", message: "Digite o CEP antes de buscar :)", delegate: nil, cancelButtonTitle: "Entendi")
             emptyAlert.show()
             self.stopLoading()
         }
     }
     
+    //Method that puts the view in loading state
     func startLoading() -> Void {
         self.hideKeyboard()
         self.activityIndicator.alpha = 1.0
@@ -68,6 +78,7 @@ class CPPSearchCepViewController: UIViewController {
         self.searchButton.enabled = false
     }
     
+    //Method that puts the view in normal state
     func stopLoading() -> Void {
         self.hideKeyboard()
         self.activityIndicator.alpha = 0
@@ -75,22 +86,12 @@ class CPPSearchCepViewController: UIViewController {
         self.searchButton.enabled = true
     }
     
+    //Method that hides the keyboard
     func hideKeyboard() -> Void {
         self.view.endEditing(true)
     }
     
-    func getAddressInfo() {
-        var cep: String! = "94045020"
-        CPPCepAPIManager().getAddressWithCep(cep, success: { (responseObject) -> Void in
-            if let JSONAdress = responseObject as? Dictionary<String, String> {
-                NSLog("Funcionou: %@", JSONAdress)
-                var address = CPPAddress(dictionary: JSONAdress)
-            }
-        }) { (error) -> Void in
-            NSLog("%@", error.description)
-        }
-    }
-    
+    //Method that adjust the searchCepContainerView when the keyboard will show
     func keyboardWillShow(notification: NSNotification) {
         let dict = notification.userInfo as [NSString:NSObject]
         let keyboardSize = (dict[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue().size
@@ -110,6 +111,7 @@ class CPPSearchCepViewController: UIViewController {
         
     }
     
+    //Method that adjust the searchCepContainerView when the keyboard will hide
     func keyboardWillHide(notification: NSNotification) {
         let dict = notification.userInfo as [NSString:NSObject]
         
@@ -126,6 +128,7 @@ class CPPSearchCepViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Configuring the address of details view
         if (segue.identifier == "showCepDetails") {
             var detailView = segue.destinationViewController as CPPCepDetailsTableViewController
             detailView.address = self.address
