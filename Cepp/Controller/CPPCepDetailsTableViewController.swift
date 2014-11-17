@@ -12,10 +12,15 @@ import CoreLocation
 
 class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDelegate, APParallaxViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var userDistanceToAddress: UILabel!
+    @IBOutlet weak var streetAddress: UILabel!
+    @IBOutlet weak var zipcode: UILabel!
+    @IBOutlet weak var cityAndState: UILabel!
+    
     let locationManager = CLLocationManager()
     
     var address: CPPAddress!
-    var userLocation: CLLocationCoordinate2D!
+    var userLocation: CLLocation!
     var parallaxHeader: UIView!
     var mapHeader: MKMapView!
     var isWazeInstalled: Bool!
@@ -27,13 +32,6 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        CPPCepAPIManager().geocodeAddress(self.address, success: { (placemark) -> Void in
-            self.address.location = placemark.coordinate
-            self.putAdressOnMap()
-        }) { (error) -> Void in
-            
-        }
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -57,16 +55,23 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         
         var constW = NSLayoutConstraint(item: self.mapHeader, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.tableView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
         self.view.addConstraint(constW)
+        
+        self.putAdressOnMap()
+        
+        self.streetAddress.text = self.address.streetAddress
+        self.zipcode.text = self.address.zipcode
+        self.cityAndState.text = String(format: "%@ - %@", self.address.city, self.address.state)
     }
     
     //MARK: - Actions
     
     func putAdressOnMap() -> Void {
         let annotation = MKPointAnnotation()
-        annotation.setCoordinate(self.userLocation)
+        annotation.setCoordinate(self.address.location)
         annotation.title = self.address.streetAddress
         
         self.mapHeader.addAnnotation(annotation)
+        self.mapHeader.selectAnnotation(annotation, animated: true)
         
         let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 200, 200)
         let adjusted = self.mapHeader.regionThatFits(region)
@@ -75,8 +80,16 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     }
     
     func traceRoute(app: CMMapApp) {
-        var mapPoint = CMMapPoint(name: self.address.streetAddress, coordinate: self.address.location)
-        CMMapLauncher.launchMapApp(app, forDirectionsTo: mapPoint)
+        
+        if (self.address.location != nil) {
+            var mapPoint = CMMapPoint(name: self.address.streetAddress, coordinate: self.address.location)
+            CMMapLauncher.launchMapApp(app, forDirectionsTo: mapPoint)
+        } else {
+            var geocodeFailureAlert = UIAlertView(title: "Oops!", message: "Não conseguimos encontrar este endereço no mapa :(", delegate: nil, cancelButtonTitle: "Entendo...")
+            
+            geocodeFailureAlert.show()
+        }
+        
     }
     
     func verifyRouteOptions() -> Void {
@@ -117,8 +130,15 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     //MARK: - CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        self.userLocation = manager.location.coordinate
+        self.userLocation = manager.location
         self.locationManager.stopUpdatingLocation()
+        
+        if let addressCoordinate = self.address.location {
+            var distanceToAddress: double_t = self.userLocation.distanceFromLocation(CLLocation(latitude: self.address.location.latitude, longitude: self.address.location.longitude)) as double_t
+            self.userDistanceToAddress.text = String (format: "Você está a %.2fkm deste endereço", distanceToAddress / 1000)
+        } else {
+            self.userDistanceToAddress.text = "Ocorreu um erro durante o calculo de distância :("
+        }
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {

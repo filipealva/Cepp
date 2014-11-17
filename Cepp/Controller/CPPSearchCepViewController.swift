@@ -44,8 +44,11 @@ class CPPSearchCepViewController: UIViewController {
                 if let JSONAdress = responseObject as? Dictionary<String, String> {
                     NSLog("Funcionou: %@", JSONAdress)
                     self.address = CPPAddress(dictionary: JSONAdress)
-                    self.performSegueWithIdentifier("showCepDetails", sender: self)
-                    self.stopLoading()
+                    CPPCepAPIManager().geocodeAddress(self.address, callback: { (placemark) -> Void in
+                        self.address.location = placemark.coordinate
+                        self.performSegueWithIdentifier("showCepDetails", sender: self)
+                        self.stopLoading()
+                    })
                 }
             }) { (error) -> Void in
                 NSLog("%@", error.description)

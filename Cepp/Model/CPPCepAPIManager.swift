@@ -1,4 +1,4 @@
-//
+ //
 //  CPPCepAPIManager.swift
 //  Cepp
 //
@@ -26,17 +26,17 @@ class CPPCepAPIManager {
         }
     }
     
-     func geocodeAddress(address: CPPAddress!, success: (placemark: SVPlacemark!) -> Void, failure: (error: NSError!) -> Void) -> Void {
+     func geocodeAddress(address: CPPAddress!, callback: (placemark: SVPlacemark!) -> Void) -> Void {
         
         var completeAddress = address.streetAddress + ", " + address.city + ", " + address.state
         
         SVGeocoder.geocode(completeAddress, completion: { (placemarks, urlResponse, error) -> Void in
             if ((error) != nil) {
-                failure(error: error)
+                NSLog("Geocode error")
             }
             
             var placemark: SVPlacemark = placemarks[0] as SVPlacemark
-            success(placemark: placemark)
+            callback(placemark: placemark)
         })
     }
     

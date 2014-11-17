@@ -287,6 +287,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cityAndState" destination="BBM-YF-Efn" id="5dG-eo-hFu"/>
+                        <outlet property="streetAddress" destination="XCA-IE-aEB" id="cXh-bX-x34"/>
+                        <outlet property="userDistanceToAddress" destination="PuP-BY-WcX" id="dZZ-mh-Esa"/>
+                        <outlet property="zipcode" destination="zH3-e5-GLj" id="nwf-X8-pWB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0X-XT-XOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
