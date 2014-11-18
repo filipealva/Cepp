@@ -1,5 +1,8 @@
 Cepp
 ====
+Aplicação iOS open-source feita em Swift.
+
+© 2014 Filipe Alvarenga
 
 ## Sobre
 
