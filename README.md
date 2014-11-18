@@ -14,6 +14,8 @@ O aplicativo utiliza a API da [Aviso Brasil](http://avisobrasil.com.br/correio-c
 
 Tem alguma sugestão ou feedback a respeito do projeto? Submeta um Pull Request ou entre em contato comigo em: ofilipealvarenga [at] gmail.com.
 
+Sinta-se livre para contribuir ou enviar qualquer feedback :)
+
 Screen Shots
 ====
 ![alt tag](https://raw.github.com/filipealva/Cepp/res/searchi5.png)
