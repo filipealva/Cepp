@@ -2,7 +2,7 @@ Cepp
 ====
 Aplicação iOS open-source feita em [Swift](https://developer.apple.com/swift/).
 
-**IMPORTANTE:** *Este projeto utiliza [Cocoapods](http://cocoapods.org/) para gerir as dependências. Certifique-se de que possui o [Cocoapods](http://cocoapods.org/) instalado. Após fazer download do projeto aplique o comando pod install e use o arquivo Cepp.xcworkspace.*
+**IMPORTANTE:** *Este projeto utiliza [Cocoapods](http://cocoapods.org/) para gerir as dependências. Certifique-se de que possui o [Cocoapods](http://cocoapods.org/) instalado. Após fazer download do projeto aplique o comando _pod_ _install_ e use o arquivo Cepp.xcworkspace.*
 
 © 2014 Filipe Alvarenga
 
