@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032552E21A1EC32A00DA107C /* MXGoogleAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 032552E11A1EC32A00DA107C /* MXGoogleAnalytics.m */; };
 		0332D85D1A18494B00BC48A3 /* CPPCepDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */; };
 		0332D85F1A184C1900BC48A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0332D85E1A184C1800BC48A3 /* MapKit.framework */; };
 		038042751A19519C005535DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038042741A19519C005535DC /* CoreLocation.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032552E01A1EC32A00DA107C /* MXGoogleAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MXGoogleAnalytics.h; path = Model/MXGoogleAnalytics.h; sourceTree = "<group>"; };
+		032552E11A1EC32A00DA107C /* MXGoogleAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MXGoogleAnalytics.m; path = Model/MXGoogleAnalytics.m; sourceTree = "<group>"; };
 		0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPPCepDetailsHeader.xib; sourceTree = "<group>"; };
 		0332D85E1A184C1800BC48A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		038042741A19519C005535DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -80,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		032552DF1A1EC2E900DA107C /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				032552E01A1EC32A00DA107C /* MXGoogleAnalytics.h */,
+				032552E11A1EC32A00DA107C /* MXGoogleAnalytics.m */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
 		03B3C53E1A1673E4001006B6 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 		03B3C5731A16A3A5001006B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				032552DF1A1EC2E900DA107C /* Google Analytics */,
 				03B3C5741A16A3AB001006B6 /* Manager */,
 				03B3C57B1A16B1AF001006B6 /* DTO */,
 			);
@@ -342,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032552E21A1EC32A00DA107C /* MXGoogleAnalytics.m in Sources */,
 				03B3C56F1A16861A001006B6 /* CPPSearchCepViewController.swift in Sources */,
 				03B3C54D1A1673E4001006B6 /* AppDelegate.swift in Sources */,
 				03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */,

@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //Configuring Google Analytcs
+        MXGoogleAnalytics.ga_inicializeWithTrackingId("UA-52498011-2")
+        MXGoogleAnalytics.ga_trackApplicationLauchingWithOptions(launchOptions)
+        
         self.applyCustomAppearance()
+        
         return true
     }
 
