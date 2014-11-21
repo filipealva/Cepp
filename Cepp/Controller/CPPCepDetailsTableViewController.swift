@@ -78,6 +78,11 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         self.cityAndState.text = String(format: "%@ - %@", self.address.city, self.address.state)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        //Tracking screen with Google Analytics
+        MXGoogleAnalytics.ga_trackScreen("CEP Details")
+    }
+    
     //MARK: - Actions
     
     func putAdressOnMap() -> Void {
@@ -166,6 +171,8 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     }
     
     @IBAction func traceRouteButtonTouched(sender: UIBarButtonItem) {
+        //Tracking the route event
+        MXGoogleAnalytics.ga_trackEventWith("CEP Details", action: "Route traced", label: self.address.zipcode)
         //Calling the method to verify the route options avaiable
         self.verifyRouteOptions()
     }

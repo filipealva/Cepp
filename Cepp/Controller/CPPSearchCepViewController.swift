@@ -39,6 +39,11 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
         self.cep.text = ""
     }
     
+    override func viewDidAppear(animated: Bool) {
+        //Tracking screen with Google Analytics
+        MXGoogleAnalytics.ga_trackScreen("Search CEP")
+    }
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         //Hidding the keyboard
         self.hideKeyboard()
@@ -47,6 +52,8 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
     
     @IBAction func searchButtonWasTouched(sender: UIButton) {
+        //Tracking search action with Google Analytics
+        MXGoogleAnalytics.ga_trackEventWith("Search CEP", action: "CEP Searched", label: self.removeCepFormatter(self.cep.text))
         if (self.cep.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
             self.startLoading()
             //Calling the APIManager method that gets the address by the zipcode

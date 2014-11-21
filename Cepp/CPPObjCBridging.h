@@ -15,3 +15,4 @@
 #import <SVGeocoder/SVGeocoder.h>
 #import <SVGeocoder/SVPlacemark.h>
 #import "CMMapLauncher.h"
+#import "MXGoogleAnalytics.h"
