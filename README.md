@@ -4,7 +4,7 @@ Aplicação iOS open-source feita em [Swift](https://developer.apple.com/swift/)
 
 Ícone feito por: [Rodrigo Nascimento](https://github.com/rodrigok) (tks :D)
 
-**IMPORTANTE:** *Este projeto utiliza [Cocoapods](http://cocoapods.org/) para gerir as dependências. Certifique-se de que possui o [Cocoapods](http://cocoapods.org/) instalado. Após fazer download aplique o comando _pod_ _install_ no diretório do projeto e utilize o arquivo Cepp.xcworkspace.*
+**IMPORTANTE:** *Este projeto utiliza [Cocoapods](http://cocoapods.org/) para gerir as dependências, certifique-se de que possui o mesmo instalado. Após fazer download aplique o comando _pod_ _install_ no diretório do projeto e utilize o arquivo Cepp.xcworkspace.*
 
 **[Disponível na AppStore](https://itunes.apple.com/br/app/cepp-encontre-ceps/id942709971?ls=1&mt=8)**
 
