@@ -54,12 +54,21 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
             locationServicesDisabledAlert.show()
         }
         
-        //Configuring the UITableView parallax header
-        self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as UIView
-        self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
-        
-        self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
-        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+            case .Pad:
+                //Configuring the UITableView parallax header for iPad
+                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPiPadCepDetailsHeader", owner: nil, options: nil)[0] as UIView
+                self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+                
+                self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 450)
+            default:
+                //Configuring the UITableView parallax header for iPhone
+                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as UIView
+                self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+                
+                self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
+        }
+
         //Configuring mapHeader width
         self.mapHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
         var constW = NSLayoutConstraint(item: self.mapHeader, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.tableView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
