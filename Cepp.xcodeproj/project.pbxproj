@@ -22,6 +22,8 @@
 		03B3C5761A16A673001006B6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 03B3C5751A16A673001006B6 /* Podfile */; };
 		03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C5791A16B1A7001006B6 /* CPPAddress.swift */; };
 		03B3C57E1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */; };
+		03ED3BBB1A4681E400CFDB3C /* CPPCepDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED3BBA1A4681E400CFDB3C /* CPPCepDetailsTableViewCell.swift */; };
+		03ED3BBE1A4682C100CFDB3C /* CPPiPadCepDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03ED3BBC1A4682C100CFDB3C /* CPPiPadCepDetailsHeader.xib */; };
 		481BED1F6C87802C6F95A030 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F651B421768CEC843A10C468 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		03B3C5771A16A71C001006B6 /* CPPObjCBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPPObjCBridging.h; sourceTree = "<group>"; };
 		03B3C5791A16B1A7001006B6 /* CPPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPAddress.swift; path = Model/CPPAddress.swift; sourceTree = "<group>"; };
 		03B3C57D1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPCepDetailsTableViewController.swift; path = Controller/CPPCepDetailsTableViewController.swift; sourceTree = "<group>"; };
+		03ED3BBA1A4681E400CFDB3C /* CPPCepDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPCepDetailsTableViewCell.swift; path = View/CPPCepDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		03ED3BBD1A4682C100CFDB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CPPiPadCepDetailsHeader.xib; sourceTree = "<group>"; };
 		148B8C53EB8E3DAC56259E0E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		75B4889AEA40EE815F261B53 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F651B421768CEC843A10C468 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,11 +195,21 @@
 		03B3C57C1A180935001006B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03ED3BB91A4681B800CFDB3C /* Custom Class */,
 				03B3C5571A1673E5001006B6 /* LaunchScreen.xib */,
 				03B3C5521A1673E5001006B6 /* Main.storyboard */,
 				0332D85C1A18494B00BC48A3 /* CPPCepDetailsHeader.xib */,
+				03ED3BBC1A4682C100CFDB3C /* CPPiPadCepDetailsHeader.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		03ED3BB91A4681B800CFDB3C /* Custom Class */ = {
+			isa = PBXGroup;
+			children = (
+				03ED3BBA1A4681E400CFDB3C /* CPPCepDetailsTableViewCell.swift */,
+			);
+			name = "Custom Class";
 			sourceTree = "<group>";
 		};
 		A01FBA1BA044B556C160E51F /* Pods */ = {
@@ -302,6 +316,7 @@
 			files = (
 				0332D85D1A18494B00BC48A3 /* CPPCepDetailsHeader.xib in Resources */,
 				03B3C5541A1673E5001006B6 /* Main.storyboard in Resources */,
+				03ED3BBE1A4682C100CFDB3C /* CPPiPadCepDetailsHeader.xib in Resources */,
 				03B3C5591A1673E5001006B6 /* LaunchScreen.xib in Resources */,
 				03B3C5761A16A673001006B6 /* Podfile in Resources */,
 				03B3C5561A1673E5001006B6 /* Images.xcassets in Resources */,
@@ -361,6 +376,7 @@
 				03B3C57A1A16B1A7001006B6 /* CPPAddress.swift in Sources */,
 				03B3C57E1A180F6F001006B6 /* CPPCepDetailsTableViewController.swift in Sources */,
 				03A699001A1A1DCD00AC70B0 /* CPPNavigationViewController.swift in Sources */,
+				03ED3BBB1A4681E400CFDB3C /* CPPCepDetailsTableViewCell.swift in Sources */,
 				03B3C5721A16A3A0001006B6 /* CPPCepAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +414,14 @@
 				03B3C5581A1673E5001006B6 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		03ED3BBC1A4682C100CFDB3C /* CPPiPadCepDetailsHeader.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03ED3BBD1A4682C100CFDB3C /* Base */,
+			);
+			name = CPPiPadCepDetailsHeader.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -491,6 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = Cepp/CPPObjCBridging.h;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -505,6 +530,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = Cepp/CPPObjCBridging.h;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

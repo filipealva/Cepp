@@ -54,11 +54,30 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
             locationServicesDisabledAlert.show()
         }
         
-        //Configuring the UITableView parallax header
-        self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as UIView
-        self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+            
+        }
         
-        self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+            case .Pad:
+                //Configuring the UITableView parallax header for iPad
+                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPiPadCepDetailsHeader", owner: nil, options: nil)[0] as UIView
+                self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+                
+                self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 450)
+            default:
+                //Configuring the UITableView parallax header for iPhone
+                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as UIView
+                self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+                
+                self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
+        }
+        
+        //Configuring the UITableView parallax header
+//        self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as UIView
+//        self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+//        
+//        self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
         
         //Configuring mapHeader width
         self.mapHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
