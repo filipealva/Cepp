@@ -19,6 +19,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - APParallaxHeader (0.1.6)
+  - Bugsnag (4.0.1):
+    - Bugsnag/no-arc (= 4.0.1)
+  - Bugsnag/no-arc (4.0.1)
   - CMMapLauncher (1.1.0)
   - GoogleAnalytics-iOS-SDK (3.10):
     - GoogleAnalytics-iOS-SDK/Core (= 3.10)
@@ -28,13 +31,24 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.2.4)
   - APParallaxHeader
+  - Bugsnag (from `https://github.com/bugsnag/bugsnag-cocoa.git`)
   - CMMapLauncher
   - GoogleAnalytics-iOS-SDK
   - SVGeocoder
 
+EXTERNAL SOURCES:
+  Bugsnag:
+    :git: https://github.com/bugsnag/bugsnag-cocoa.git
+
+CHECKOUT OPTIONS:
+  Bugsnag:
+    :commit: c40adf17c38089a44a0f679078ee9adc6026b16a
+    :git: https://github.com/bugsnag/bugsnag-cocoa.git
+
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   APParallaxHeader: 6e7cc27c052be34e1a5655dc2fab6c40eecbbe55
+  Bugsnag: 6a1e6a64c19630150d4622c465658c81724949d1
   CMMapLauncher: 4b95899cc39bd14dfa3e8525470e34cb8edbb028
   GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
   SVGeocoder: 67f187000ddf9abdd979137d136cd8b30b53e2f6

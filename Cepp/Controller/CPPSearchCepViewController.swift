@@ -121,7 +121,11 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
             initialConstant = keyboardConstraint.constant
         }
         
-        keyboardConstraint.constant = keyboardSize.height + 40
+        if (keyboardSize.height > 10) {
+            keyboardConstraint.constant = keyboardSize.height + 40
+        } else {
+            keyboardConstraint.constant = 350
+        }
         
         let animationDuration = Double(dict[UIKeyboardAnimationDurationUserInfoKey] as NSNumber) as NSTimeInterval
         UIView.animateWithDuration(animationDuration) {

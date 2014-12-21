@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MXGoogleAnalytics.ga_inicializeWithTrackingId("UA-52498011-2")
         MXGoogleAnalytics.ga_trackApplicationLauchingWithOptions(launchOptions)
         
+        //Setting UIAppearance customized
         self.applyCustomAppearance()
+        
+        //Start bug tracking with Bugsnag
+        Bugsnag.startBugsnagWithApiKey("ffbaf26b2455cd326443fe68f9c8975a")
         
         return true
     }
