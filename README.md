@@ -1,26 +1,25 @@
 Cepp
 ====
-Aplicação iOS open-source feita em [Swift](https://developer.apple.com/swift/).
+iOS application written in [Swift](https://developer.apple.com/swift/).
 
-Ícone feito por: [Rodrigo Nascimento](https://github.com/rodrigok) (tks :D)
+Icon by: [Rodrigo Nascimento](https://github.com/rodrigok) (tks :D)
 
-**IMPORTANTE:** *Este projeto utiliza [Cocoapods](http://cocoapods.org/) para gerir as dependências, certifique-se de que possui o mesmo instalado. Após fazer download aplique o comando _pod_ _install_ no diretório do projeto e utilize o arquivo Cepp.xcworkspace.*
+**IMPORTANT:** *This project uses [Cocoapods](http://cocoapods.org/) as the dependency manager, make sure you have it installed. After download or clone it, apply the command _pod_ _install_ in the directory of the project and then open the Cepp.xcworkspace file.*
 
-**[Disponível na AppStore](https://itunes.apple.com/br/app/cepp-encontre-ceps/id942709971?ls=1&mt=8)**
+**[Available at the Brazilian AppStore](https://itunes.apple.com/br/app/cepp-encontre-ceps/id942709971?ls=1&mt=8)**
 
 © 2014 Filipe Alvarenga
 
-## Sobre
+## About
 
-O aplicativo é simples e se baseia na pesquisa de maiores detalhes de um CEP. O usuário também pode traçar uma rota no GPS através do Cepp. 
+It's a simple application that can find details about an address based on a given zipcode (a.k.a CEP in Brazil). The user also can trace a route in the map using througt Cepp. The API which this app uses to search the information about zipcodes works only with brazilian zipcodes.
 
-O aplicativo utiliza a API da [Aviso Brasil](http://avisobrasil.com.br/correio-control/api-de-consulta-de-cep/) para obter os detalhes de um CEP e o Google Geocoding Service através do wrapper [SVGeocoder](https://github.com/TransitApp/SVGeocoder) para obter a geolocalização do mesmo.
+
+This application uses the [Aviso Brasil] API (http://avisobrasil.com.br/correio-control/api-de-consulta-de-cep/) to get the information of a zipcode and the Google Geocoding Service througt the wrapper [SVGeocoder](https://github.com/TransitApp/SVGeocoder) to get the geolocalization.
 
 ## Open-source
 
-Tem alguma sugestão ou feedback a respeito do projeto? Submeta um Pull Request ou entre em contato comigo em: ofilipealvarenga [at] gmail.com.
-
-Sinta-se livre para contribuir ou enviar qualquer feedback :)
+Feel free to submit a pull request if you have any improvement to sugest. If you have a feedback or wants to talk with me you can send me an e-mail: ofilipealvarenga [at] gmail.com :)
 
 Screen Shots
 ====
