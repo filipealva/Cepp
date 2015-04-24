@@ -10,7 +10,7 @@ pod install
 ``` 
 and then open **Cepp.xcworkspace** file.
 
-**NOTE:** This project was written with Swift 1.1.
+**NOTE:** To run this project you'll need Swift 1.1.
 
 **[Available at the Brazilian AppStore](https://itunes.apple.com/br/app/cepp-encontre-ceps/id942709971?ls=1&mt=8)**
 
