@@ -27,7 +27,7 @@ This application uses the [Aviso Brasil] (http://avisobrasil.com.br/correio-cont
 
 I've made it open-source to share with the people the way that I used Swift to make this application. 
 
-*P.S: This is my first application written in Swift, and it was written when Swift had 5 months of life. I've learnt a lot after I wrote it and I hope to refactor this project to share with you a better way to write it with Swift soon.*
+*P.S: This is my first application written in Swift, and it was written when Swift had 5 months of life. I've learned a lot after I wrote it and I hope to refactor this project to share with you a better way to write it with Swift soon.*
 
 Feel free to submit a pull request if you have any improvement to sugest. If you have a feedback or wants to talk with me you can send me an e-mail: ofilipealvarenga [at] gmail.com :)
 
