@@ -57,14 +57,14 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         switch UIDevice.currentDevice().userInterfaceIdiom {
             case .Pad:
                 //Configuring the UITableView parallax header for iPad
-                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPiPadCepDetailsHeader", owner: nil, options: nil)[0] as UIView
-                self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPiPadCepDetailsHeader", owner: nil, options: nil)[0] as! UIView
+                self.mapHeader = self.parallaxHeader.viewWithTag(100) as! MKMapView
                 
                 self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 450)
             default:
                 //Configuring the UITableView parallax header for iPhone
-                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as UIView
-                self.mapHeader = self.parallaxHeader.viewWithTag(100) as MKMapView
+                self.parallaxHeader = NSBundle.mainBundle().loadNibNamed("CPPCepDetailsHeader", owner: nil, options: nil)[0] as! UIView
+                self.mapHeader = self.parallaxHeader.viewWithTag(100) as! MKMapView
                 
                 self.tableView.addParallaxWithView(self.parallaxHeader, andHeight: 160)
         }
@@ -97,7 +97,7 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     func putAdressOnMap() -> Void {
         //Creating the annotation
         let annotation = MKPointAnnotation()
-        annotation.setCoordinate(self.address.location)
+        annotation.coordinate = self.address.location
         
         if (self.address.streetAddress == nil) {
             annotation.title = self.address.city + " - " + self.address.state
@@ -116,21 +116,21 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     }
     
     func formatCep(cep: NSString) -> String {
-        var formattedCep: NSMutableString =  cep.mutableCopy() as NSMutableString
+        let formattedCep: NSMutableString =  cep.mutableCopy() as! NSMutableString
         formattedCep.insertString("-", atIndex: 5)
         
-        return formattedCep
+        return formattedCep as String
     }
     
     func traceRoute(app: CMMapApp) {
         //Veryfing if the address location was successful geocoded
         if (self.address.location != nil) {
             //Launching the map app to trace a route
-            var mapPoint = CMMapPoint(name: self.address.streetAddress, coordinate: self.address.location)
+            let mapPoint = CMMapPoint(name: self.address.streetAddress, coordinate: self.address.location)
             CMMapLauncher.launchMapApp(app, forDirectionsTo: mapPoint)
         } else {
             //Notifying the user that the address geocode was failed
-            var geocodeFailureAlert = UIAlertView(title: "Oops!", message: "Não conseguimos encontrar este endereço no mapa :(", delegate: nil, cancelButtonTitle: "Entendo...")
+            let geocodeFailureAlert = UIAlertView(title: "Oops!", message: "Não conseguimos encontrar este endereço no mapa :(", delegate: nil, cancelButtonTitle: "Entendo...")
             
             geocodeFailureAlert.show()
         }
@@ -165,7 +165,7 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
             }
             
             //Configuring the mapAppAsk UIActionSheet
-            var mapAppAsk = UIActionSheet()
+            let mapAppAsk = UIActionSheet()
             mapAppAsk.title = "Com qual app você prefere?"
             mapAppAsk.delegate = self
             
@@ -188,14 +188,14 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     
     //MARK: - CLLocationManagerDelegate
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
         //Getting the user location and stoping the updates
         self.userLocation = manager.location
         self.locationManager.stopUpdatingLocation()
         
         //Showing to the user the distance of address
         if let addressCoordinate = self.address.location {
-            var distanceToAddress: double_t = self.userLocation.distanceFromLocation(CLLocation(latitude: self.address.location.latitude, longitude: self.address.location.longitude)) as double_t
+            let distanceToAddress: double_t = self.userLocation.distanceFromLocation(CLLocation(latitude: self.address.location.latitude, longitude: self.address.location.longitude)) as double_t
             self.userDistanceToAddress.text = String (format: "Você está a %.2fkm deste endereço", distanceToAddress / 1000)
         } else {
             //If the address geocoding was failed we notify the user
@@ -203,9 +203,9 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         //Notifying the user that we can't get your location
-        var errorWhenGetLocation = UIAlertView(title: "Oops!", message: "Ocorreu algum erro enquanto tentavamos pegar a sua localização :(", delegate: nil, cancelButtonTitle: "Beleza, vou tentar novamente")
+        let errorWhenGetLocation = UIAlertView(title: "Oops!", message: "Ocorreu algum erro enquanto tentavamos pegar a sua localização :(", delegate: nil, cancelButtonTitle: "Beleza, vou tentar novamente")
         
         errorWhenGetLocation.show()
     }
@@ -215,7 +215,7 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         //Verifying which app the user choosed to trace the route
         if (buttonIndex != self.routeOptions.count) {
-            var buttonTitle = self.routeOptions[buttonIndex]
+            let buttonTitle = self.routeOptions[buttonIndex]
             
             if (buttonIndex == 0) {
                 self.traceRoute(CMMapApp.AppleMaps)

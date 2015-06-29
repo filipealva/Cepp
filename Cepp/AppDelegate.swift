@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: Appearance
     func applyCustomAppearance() -> Void {
-        var barTintColor = UIColor(red: 43.0/255, green: 170.0/255, blue: 156.0/255, alpha: 1.0)
+        let barTintColor = UIColor(red: 43.0/255, green: 170.0/255, blue: 156.0/255, alpha: 1.0)
         
         UINavigationBar.appearance().barTintColor = barTintColor
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()

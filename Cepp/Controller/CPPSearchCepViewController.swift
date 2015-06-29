@@ -44,7 +44,9 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
         MXGoogleAnalytics.ga_trackScreen("Search CEP")
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
+        
         //Hidding the keyboard
         self.hideKeyboard()
     }
@@ -53,11 +55,11 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func searchButtonWasTouched(sender: UIButton) {
         //Tracking search action with Google Analytics
-        MXGoogleAnalytics.ga_trackEventWith("Search CEP", action: "CEP Searched", label: self.removeCepFormatter(self.cep.text))
-        if (self.cep.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
+        MXGoogleAnalytics.ga_trackEventWith("Search CEP", action: "CEP Searched", label: self.removeCepFormatter(self.cep.text!))
+        if (self.cep.text!.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
             self.startLoading()
             //Calling the APIManager method that gets the address by the zipcode
-            CPPCepAPIManager().getAddressWithCep(self.removeCepFormatter(self.cep.text), success: { (responseObject) -> Void in
+            CPPCepAPIManager().getAddressWithCep(self.removeCepFormatter(self.cep.text!), success: { (responseObject) -> Void in
                 //Verifying the responseObject and creating the CPPAdress
                 if let JSONAdress = responseObject as? Dictionary<String, String> {
                     self.address = CPPAddress(dictionary: JSONAdress)
@@ -72,17 +74,17 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
             }) { (error) -> Void in
                 //Notifying the user that an error ocurred
                 if (error.code == -1009) {
-                    var noConnectionAlert = UIAlertView(title: "Oops :(", message: "Não foi possível buscar o endereço, verifique sua conexão", delegate: nil, cancelButtonTitle: "Ok")
+                    let noConnectionAlert = UIAlertView(title: "Oops :(", message: "Não foi possível buscar o endereço, verifique sua conexão", delegate: nil, cancelButtonTitle: "Ok")
                     noConnectionAlert.show()
                 } else {
-                    var invalidZipcode = UIAlertView(title: "Oops!", message: "CEP inválido", delegate: nil, cancelButtonTitle: "Ok")
+                    let invalidZipcode = UIAlertView(title: "Oops!", message: "CEP inválido", delegate: nil, cancelButtonTitle: "Ok")
                     invalidZipcode.show()
                 }
                 self.stopLoading()
             }
         } else {
             //Notifying the user that he must enter a zipcode before search
-            var emptyAlert = UIAlertView(title: "Oops!", message: "Digite o CEP antes de buscar :)", delegate: nil, cancelButtonTitle: "Entendi")
+            let emptyAlert = UIAlertView(title: "Oops!", message: "Digite o CEP antes de buscar :)", delegate: nil, cancelButtonTitle: "Entendi")
             emptyAlert.show()
             self.stopLoading()
         }
@@ -112,8 +114,8 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
     
     //Method that adjust the searchCepContainerView when the keyboard will show
     func keyboardWillShow(notification: NSNotification) {
-        let dict = notification.userInfo as [NSString:NSObject]
-        let keyboardSize = (dict[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue().size
+        let dict = notification.userInfo as! [NSString:NSObject]
+        let keyboardSize = (dict[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
         
         view.removeConstraint(self.centerSearchViewConstraint)
         
@@ -127,7 +129,7 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
             keyboardConstraint.constant = 350
         }
         
-        let animationDuration = Double(dict[UIKeyboardAnimationDurationUserInfoKey] as NSNumber) as NSTimeInterval
+        let animationDuration = Double(dict[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber) as NSTimeInterval
         UIView.animateWithDuration(animationDuration) {
             self.view.layoutIfNeeded()
         }
@@ -136,13 +138,13 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
     
     //Method that adjust the searchCepContainerView when the keyboard will hide
     func keyboardWillHide(notification: NSNotification) {
-        let dict = notification.userInfo as [NSString:NSObject]
+        let dict = notification.userInfo as! [NSString:NSObject]
         
         view.addConstraint(self.centerSearchViewConstraint)
         
         keyboardConstraint.constant = initialConstant
         
-        let animationDuration = Double(dict[UIKeyboardAnimationDurationUserInfoKey] as NSNumber) as NSTimeInterval
+        let animationDuration = Double(dict[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber) as NSTimeInterval
         UIView.animateWithDuration(animationDuration) {
             self.view.layoutIfNeeded()
         }
@@ -152,11 +154,11 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         //Getting the textfield text
-        var text: NSString = textField.text as NSString
+        var text: NSString = textField.text! as NSString
         text = text.stringByReplacingCharactersInRange(range, withString: string)
         
         //Adding the textfield text on a mutable string
-        var mutableString: NSMutableString = text.mutableCopy() as NSMutableString
+        let mutableString: NSMutableString = text.mutableCopy() as! NSMutableString
         
         //Verifying if the user not tapped the delete key
         if(!(range.length == 1 && string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0)) {
@@ -174,7 +176,7 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
         }
         
         //Putting the string with the formatter character on the textfield
-        textField.text = mutableString
+        textField.text = mutableString as String
         
         return false
     }
@@ -184,7 +186,7 @@ class CPPSearchCepViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //Configuring the address of details view
         if (segue.identifier == "showCepDetails") {
-            var detailView = segue.destinationViewController as CPPCepDetailsTableViewController
+            let detailView = segue.destinationViewController as! CPPCepDetailsTableViewController
             detailView.address = self.address
         }
     }

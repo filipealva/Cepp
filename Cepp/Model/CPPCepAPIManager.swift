@@ -15,7 +15,7 @@ class CPPCepAPIManager {
     
     func getAddressWithCep(cep: String, success: (JSONAddress: AnyObject!) -> Void, failure: (error: NSError!) -> Void) -> Void {
         //Adding the parameter CEP to the baseURL
-        var requestURL = String(format: self.baseURL, cep)
+        let requestURL = String(format: self.baseURL, cep)
         //Calling the GET method of AFNetworking through the manager
         self.apiManager.GET(requestURL, parameters: nil,success: {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) -> Void in
             //The closure below allow us to get the responseObject where the method was called
@@ -37,7 +37,7 @@ class CPPCepAPIManager {
                 NSLog("Geocode error")
             }
             //Getting the placemark and passing by parameter on the callback method
-            var placemark: SVPlacemark = placemarks[0] as SVPlacemark
+            var placemark: SVPlacemark = placemarks[0] as! SVPlacemark
             callback(placemark: placemark)
         })
     }

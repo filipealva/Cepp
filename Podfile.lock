@@ -46,11 +46,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/bugsnag/bugsnag-cocoa.git
 
 SPEC CHECKSUMS:
-  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
-  APParallaxHeader: 6e7cc27c052be34e1a5655dc2fab6c40eecbbe55
-  Bugsnag: 6a1e6a64c19630150d4622c465658c81724949d1
-  CMMapLauncher: 4b95899cc39bd14dfa3e8525470e34cb8edbb028
-  GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
-  SVGeocoder: 67f187000ddf9abdd979137d136cd8b30b53e2f6
+  AFNetworking: caca0799b310f0c3bf1fc1af45145fc96972bcab
+  APParallaxHeader: 854bc48a2487ca12c702f8a236fec0d89cdac5c3
+  Bugsnag: 9bd631e915e6e7866af277b66daac4ea17555e79
+  CMMapLauncher: 668b949522d1789506e3c8d9dbc1b0384ee20573
+  GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
+  SVGeocoder: f5261622e90c9bfb48e84df3765afd1e6522ae66
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.37.2
