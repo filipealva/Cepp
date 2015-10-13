@@ -37,10 +37,14 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
-        var osVersion = UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch)
+        let osVersion = UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch)
         
         if (osVersion == .OrderedSame || osVersion == .OrderedDescending) {
-            self.locationManager.requestWhenInUseAuthorization()
+            if #available(iOS 8.0, *) {
+                self.locationManager.requestWhenInUseAuthorization()
+            } else {
+                // Fallback on earlier versions
+            }
         }
         
         //Verifying if the user allowed the location services
@@ -49,7 +53,7 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
             self.locationManager.startUpdatingLocation()
         } else {
             //Notifying the user that he must allows us to get your location
-            var locationServicesDisabledAlert = UIAlertView(title: "Vish!", message: "Você precisa autorizar os serviços de localização para o Cepp em suas configurações :)", delegate: nil, cancelButtonTitle: "Entendi")
+            let locationServicesDisabledAlert = UIAlertView(title: "Vish!", message: "Você precisa autorizar os serviços de localização para o Cepp em suas configurações :)", delegate: nil, cancelButtonTitle: "Entendi")
             
             locationServicesDisabledAlert.show()
         }
@@ -70,8 +74,8 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
         }
 
         //Configuring mapHeader width
-        self.mapHeader.setTranslatesAutoresizingMaskIntoConstraints(false)
-        var constW = NSLayoutConstraint(item: self.mapHeader, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.tableView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        self.mapHeader.translatesAutoresizingMaskIntoConstraints = false
+        let constW = NSLayoutConstraint(item: self.mapHeader, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.tableView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
         self.view.addConstraint(constW)
         
         //Putting the address on the map
@@ -188,13 +192,13 @@ class CPPCepDetailsTableViewController: UITableViewController, UIActionSheetDele
     
     //MARK: - CLLocationManagerDelegate
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //Getting the user location and stoping the updates
         self.userLocation = manager.location
         self.locationManager.stopUpdatingLocation()
         
         //Showing to the user the distance of address
-        if let addressCoordinate = self.address.location {
+        if let _ = self.address.location {
             let distanceToAddress: double_t = self.userLocation.distanceFromLocation(CLLocation(latitude: self.address.location.latitude, longitude: self.address.location.longitude)) as double_t
             self.userDistanceToAddress.text = String (format: "Você está a %.2fkm deste endereço", distanceToAddress / 1000)
         } else {
