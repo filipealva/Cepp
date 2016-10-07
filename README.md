@@ -4,7 +4,7 @@ iOS application written in [Swift](https://developer.apple.com/swift/).
 
 Icon by: [Rodrigo Nascimento](https://github.com/rodrigok) (tks :D)
 
-**IMPORTANT:** *This project uses [Cocoapods](http://cocoapods.org/) as the dependency manager, make sure you have it installed. After download or clone it, apply the following command in the directory of the project:
+**IMPORTANT:** *This project uses [CocoaPods](http://cocoapods.org/) as the dependency manager, make sure you have it installed. After download or clone it, apply the following command in the directory of the project:
 ```bash 
 pod install 
 ``` 
