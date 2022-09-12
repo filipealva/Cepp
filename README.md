@@ -12,8 +12,6 @@ and then open **Cepp.xcworkspace** file.
 
 **[Available at the Brazilian AppStore](https://itunes.apple.com/br/app/cepp-encontre-ceps/id942709971?ls=1&mt=8)**
 
-© 2014 Filipe Alvarenga
-
 ## About
 
 It's a simple application that can find details about an address based on a given zipcode (a.k.a CEP in Brazil). The user also can trace a route in the map using througt Cepp. The API which this app uses to search the information about zipcodes works only with brazilian zipcodes.
